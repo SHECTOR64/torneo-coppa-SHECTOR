@@ -25,6 +25,7 @@ def scatta_foto_precise():
     
     percorso_foto_sottocartella = os.path.join(cartella_lavoro, CARTELLA_FOTO_NOME)
     percorso_web = os.path.join(cartella_lavoro, NOME_FILE_WEB)
+    percorso_immagini_fisse = os.path.join(cartella_lavoro, "immagini_fisse")
     
     if not os.path.exists(percorso_foto_sottocartella): os.makedirs(percorso_foto_sottocartella)
 
@@ -54,11 +55,12 @@ def scatta_foto_precise():
         salva_foto_sicura(sht_prono, "A1:AU58", percorso_foto_sottocartella, "I PRONOSTICI DI TUTTI.png")
         
         # --- SCATTI COPPA ---
-        # Foto 1a dal foglio PRONO&RISULTATI
+        # Foto 1a e 1b dal foglio PRONO&RISULTATI
         salva_foto_sicura(sht_main, "AD8:AE62", cartella_lavoro, "foto_coppa_1a.png")
-        
-        # Foto 1b dal foglio PRONO&RISULTATI (Coordinate aggiornate a W4:AA62)
         salva_foto_sicura(sht_main, "W4:AA62", cartella_lavoro, "foto_coppa_1b.png")
+        
+        # AGGIORNATO: Foto CLASS2AFASE ora dinamica dal foglio CLASSIFICHE COPPA
+        salva_foto_sicura(sht_coppa_foglio, "B64:E106", percorso_immagini_fisse, "CLASS2AFASE.png")
         
         # Foto 3 dal foglio CLASSIFICHE COPPA
         salva_foto_sicura(sht_coppa_foglio, "L175:AA220", cartella_lavoro, "foto_coppa_3.png")
@@ -141,7 +143,7 @@ def scatta_foto_precise():
                     <div style="display: flex; justify-content: center; gap: 20px;">
                         <div style="width: 28%;">
                             <img src="immagini_fisse/2afase.png" style="width: 100%;">
-                            <img src="immagini_fisse/CLASS2AFASE.png" style="width: 80%; border: 1px solid gold;">
+                            <img src="immagini_fisse/CLASS2AFASE.png?v={timestamp_url}" style="width: 80%; border: 1px solid gold;">
                         </div>
                         <img src="foto_coppa_2.png?v={timestamp_url}" style="width: 50%; border: 2px solid #444;">
                     </div>
