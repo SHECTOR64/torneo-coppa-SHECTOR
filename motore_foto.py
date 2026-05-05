@@ -145,7 +145,7 @@ def scatta_foto_precise():
 
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
                     <div style="display: flex; justify-content: center; gap: 20px;">
-                        <img src="immagini_fisse/3afase.png" style="width: 30%;">
+                        <img src="immagini_fisse/3afase.png" style="width: 20%;">
                         <img src="foto_coppa_3.png?v={timestamp_url}" style="width: 65%; border: 2px solid gold;">
                     </div>
                 </div>
