@@ -158,15 +158,21 @@ def scatta_foto_precise():
         with open(percorso_web, "w", encoding="utf-8") as f: f.write(html_content)
         webbrowser.open(f"file:///{percorso_web.replace(os.sep, '/')}")
 
-        # --- INVIO A GITHUB CON FIX PERCORSO ---
+        # --- INVIO A GITHUB CON PERCORSO FORZATO ---
         p_git = r"C:\Program Files\Git\bin\git.exe"
         git_cmd = p_git if os.path.exists(p_git) else "git"
         
-        subprocess.run([git_cmd, "add", "."], cwd=cartella_lavoro)
-        subprocess.run([git_cmd, "commit", "-m", f"Aggiornamento {timestamp_label}"], cwd=cartella_lavoro)
+        # 1. Aggiunge tutto (foto nuove e HTML)
+        subprocess.run([git_cmd, "add", "--all"], cwd=cartella_lavoro)
+        
+        # 2. Crea il pacchetto di aggiornamento
+        subprocess.run([git_cmd, "commit", "-m", f"Update {timestamp_label}"], cwd=cartella_lavoro)
+        
+        # 3. Scarica eventuali modifiche online per evitare conflitti
         subprocess.run([git_cmd, "pull", "--rebase", "origin", "main"], cwd=cartella_lavoro)
+        
+        # 4. Invia tutto online
         subprocess.run([git_cmd, "push", "origin", "main"], cwd=cartella_lavoro)
-
     except Exception as e:
         root = tk.Tk(); root.withdraw(); messagebox.showerror("ERRORE", str(e)); root.destroy()
 
