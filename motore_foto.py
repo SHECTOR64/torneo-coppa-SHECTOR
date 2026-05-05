@@ -14,7 +14,7 @@ CARTELLA_FOTO_NOME = "foto_tabellini"
 NOME_FILE_WEB = "visualizza_tabellini.html"
 
 # --- [PARAMETRI ALTEZZA SETTORE 1 COPPA] ---
-ALTEZZA_PRIMA_FOTO = "480px"   # Altezza per Primafoto.png
+ALTEZZA_PRIMA_FOTO = "480px"   # Altezza per Primafoto.png e ora anche per 3afase.png
 ALTEZZA_ALRE_FOTO = "920px"    # Altezza per foto_coppa_1a e 1b
 
 def scatta_foto_precise():
@@ -57,7 +57,6 @@ def scatta_foto_precise():
         
         # Foto per la sezione Coppa (salvate nella root della cartella lavoro)
         salva_foto_sicura(sht_coppa_foglio, "L175:AA220", cartella_lavoro, "foto_coppa_3.png")
-        # Aggiungi qui eventuali altri scatti per foto_coppa_1a o 1b se necessario
 
         # --- GENERAZIONE TABELLINI GIOCATORI ---
         lista_nomi = sht_main.range("AD10:AD62").value
@@ -144,8 +143,8 @@ def scatta_foto_precise():
                 </div>
 
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
-                    <div style="display: flex; justify-content: center; gap: 20px;">
-                        <img src="immagini_fisse/3afase.png" style="width: 20%;">
+                    <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+                        <img src="immagini_fisse/3afase.png" style="height: {ALTEZZA_PRIMA_FOTO}; border: 2px solid gold; border-radius: 5px;">
                         <img src="foto_coppa_3.png?v={timestamp_url}" style="width: 65%; border: 2px solid gold;">
                     </div>
                 </div>
@@ -158,23 +157,20 @@ def scatta_foto_precise():
         with open(percorso_web, "w", encoding="utf-8") as f: f.write(html_content)
         webbrowser.open(f"file:///{percorso_web.replace(os.sep, '/')}")
 
-        # --- INVIO A GITHUB CON PERCORSO FORZATO ---
+        # --- INVIO A GITHUB ---
         p_git = r"C:\Program Files\Git\bin\git.exe"
         git_cmd = p_git if os.path.exists(p_git) else "git"
         
-        # 1. Aggiunge tutto (foto nuove e HTML)
         subprocess.run([git_cmd, "add", "--all"], cwd=cartella_lavoro)
-        
-        # 2. Crea il pacchetto di aggiornamento
         subprocess.run([git_cmd, "commit", "-m", f"Update {timestamp_label}"], cwd=cartella_lavoro)
-        
-        # 3. Scarica eventuali modifiche online per evitare conflitti
         subprocess.run([git_cmd, "pull", "--rebase", "origin", "main"], cwd=cartella_lavoro)
-        
-        # 4. Invia tutto online
         subprocess.run([git_cmd, "push", "origin", "main"], cwd=cartella_lavoro)
+        
     except Exception as e:
         root = tk.Tk(); root.withdraw(); messagebox.showerror("ERRORE", str(e)); root.destroy()
+
+if __name__ == "__main__":
+    scatta_foto_precise()
 
 if __name__ == "__main__":
     scatta_foto_precise()
