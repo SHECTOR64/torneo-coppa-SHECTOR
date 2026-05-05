@@ -1,11 +1,89 @@
 
         <!DOCTYPE html>
         <html lang="it">
-        <head><meta charset="UTF-8"><title>16° Torneo Pronostici</title></head>
-        <body style="background:#121212; color:white; font-family:sans-serif; text-align:center;">
-            <h1>🏆 16° Torneo Pronostici 🏆</h1>
-            <p>Sincronizzato alle: 02:55:45</p>
-            <select onchange="document.getElementById('f').src=this.value">
-                <option value="">-- SELEZIONA --</option><option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1777942545">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/ROSS.png?v=1777942545">ROSS</option><option value="foto_tabellini/FRANCO.png?v=1777942545">FRANCO</option><option value="foto_tabellini/ANDREA.png?v=1777942545">ANDREA</option><option value="foto_tabellini/ELEMENTARY.png?v=1777942545">ELEMENTARY</option><option value="foto_tabellini/PANDUZ.png?v=1777942545">PANDUZ</option><option value="foto_tabellini/MUSCOLO.png?v=1777942545">MUSCOLO</option><option value="foto_tabellini/NANCY.png?v=1777942545">NANCY</option><option value="foto_tabellini/MORLAC.png?v=1777942545">MORLAC</option><option value="foto_tabellini/JACOPO.png?v=1777942545">JACOPO</option><option value="foto_tabellini/RUDY.png?v=1777942545">RUDY</option><option value="foto_tabellini/FANFU.png?v=1777942545">FANFU</option><option value="foto_tabellini/ALESSIO.png?v=1777942545">ALESSIO</option><option value="foto_tabellini/KEMIM.png?v=1777942545">KEMIM</option><option value="foto_tabellini/MAX.png?v=1777942545">MAX</option><option value="foto_tabellini/GIULIO's Fam..png?v=1777942545">GIULIO's Fam.</option><option value="foto_tabellini/GENNARO.png?v=1777942545">GENNARO</option><option value="foto_tabellini/JONA.png?v=1777942545">JONA</option><option value="foto_tabellini/ANDRY.png?v=1777942545">ANDRY</option><option value="foto_tabellini/VITO.png?v=1777942545">VITO</option><option value="foto_tabellini/MISTER FOX.png?v=1777942545">MISTER FOX</option><option value="foto_tabellini/MIRACOL.png?v=1777942545">MIRACOL</option><option value="foto_tabellini/ELENA.png?v=1777942545">ELENA</option><option value="foto_tabellini/SANDRO.png?v=1777942545">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1777942545">ROBERT</option><option value="foto_tabellini/ALFONSO.png?v=1777942545">ALFONSO</option><option value="foto_tabellini/CAOS.png?v=1777942545">CAOS</option><option value="foto_tabellini/TUZIA.png?v=1777942545">TUZIA</option><option value="foto_tabellini/NICOLO'.png?v=1777942545">NICOLO'</option><option value="foto_tabellini/DANIELE.png?v=1777942545">DANIELE</option><option value="foto_tabellini/REAL THEA.png?v=1777942545">REAL THEA</option><option value="foto_tabellini/REMEDIA.png?v=1777942545">REMEDIA</option><option value="foto_tabellini/GIUSEPPE.png?v=1777942545">GIUSEPPE</option><option value="foto_tabellini/LIONS on fire.png?v=1777942545">LIONS on fire</option><option value="foto_tabellini/TAURINORUM.png?v=1777942545">TAURINORUM</option><option value="foto_tabellini/GUERRINO.png?v=1777942545">GUERRINO</option><option value="foto_tabellini/GIACINTO.png?v=1777942545">GIACINTO</option><option value="foto_tabellini/NINO.png?v=1777942545">NINO</option><option value="foto_tabellini/MARK.png?v=1777942545">MARK</option><option value="foto_tabellini/LUCA.png?v=1777942545">LUCA</option><option value="foto_tabellini/CICCIOPIO.png?v=1777942545">CICCIOPIO</option><option value="foto_tabellini/PALA.png?v=1777942545">PALA</option><option value="foto_tabellini/GABRIPASK.png?v=1777942545">GABRIPASK</option><option value="foto_tabellini/ALBYSK.png?v=1777942545">ALBYSK</option><option value="foto_tabellini/RIGO.png?v=1777942545">RIGO</option><option value="foto_tabellini/DEVILS.png?v=1777942545">DEVILS</option><option value="foto_tabellini/ETTORE.png?v=1777942545">ETTORE</option><option value="foto_tabellini/PLAZATI.png?v=1777942545">PLAZATI</option><option value="foto_tabellini/ANTONIO.png?v=1777942545">ANTONIO</option><option value="foto_tabellini/PIOCICCIO.png?v=1777942545">PIOCICCIO</option><option value="foto_tabellini/PAOLO.png?v=1777942545">PAOLO</option><option value="foto_tabellini/FLAVIO.png?v=1777942545">FLAVIO</option><option value="foto_tabellini/DENNY.png?v=1777942545">DENNY</option>
-            </select><br><img id="f" style="margin-top:20px; max-width:90%; border:2px solid #00ff88;">
-        </body></html>
+        <head>
+            <meta charset="UTF-8">
+            <title>16° Torneo Pronostici</title>
+            <style>
+                body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; margin: 0; padding: 15px; }
+                .flex-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; max-width: 1400px; margin: 0 auto; }
+                .img-risultati { width: 100%; max-width: 850px; border-radius: 8px; border: 2px solid #00ff88; }
+                .img-extra { width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid #444; }
+                .img-max { width: 100%; max-width: none; border-radius: 5px; border: 2px solid #00ff88; }
+                .titolo-sezione { color: #00ff88; font-size: 32px; margin-bottom: 20px; display: block; text-decoration: underline; text-underline-offset: 8px; }
+                select { padding: 15px; border-radius: 8px; background: #1a1a1a; color: #00ff88; border: 2px solid #00ff88; font-size: 22px; width: 90%; max-width: 600px; }
+                .foto-standard { max-width: 850px; width: 95%; border-radius: 12px; border: 2px solid #00ff88; margin-top: 25px; }
+                .foto-wide { width: 100%; border-radius: 5px; border: 2px solid #00ff88; margin-top: 25px; }
+                #foto-tabellino { display: none; }
+                .footer-info { color:#00ff88; font-size:1rem; margin-top:15px; opacity: 0.7; }
+            </style>
+        </head>
+        <body>
+            <div style="border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <h1 style="color: #00ff88; font-size: 52px; text-shadow: 3px 3px #004422; margin: 0 20px; font-family: "AR CENA", sans-serif;">🏆 16° Torneo PRONOSTICI SERIE A 🏆</h1>
+            </div>
+            <div style="border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <span class="titolo-sezione">⚽ I RISULTATI ⚽</span>
+                <div class="flex-top">
+                    <div style="flex: 2;"><img src="foto_tabellini/risultati_partite.png?v=1777942682" class="img-risultati"></div>
+                    <div style="flex: 1;"><img src="foto_tabellini/foto_extra.png?v=1777942682" class="img-extra"></div>
+                </div>
+            </div>
+            <div style="border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <span class="titolo-sezione">📊 LE CLASSIFICHE 📊</span>
+                <img src="foto_tabellini/classifica_turno.png?v=1777942682" class="img-max">
+            </div>
+            <div style="border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <span class="titolo-sezione">📝 I TABELLINI 📝</span>
+                <select id="userSelect" onchange="mostraFoto(this)">
+                    <option value="">-- SELEZIONA GIOCATORE --</option>
+                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1777942682">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/ROSS.png?v=1777942682">ROSS</option><option value="foto_tabellini/FRANCO.png?v=1777942682">FRANCO</option><option value="foto_tabellini/ANDREA.png?v=1777942682">ANDREA</option><option value="foto_tabellini/ELEMENTARY.png?v=1777942682">ELEMENTARY</option><option value="foto_tabellini/PANDUZ.png?v=1777942682">PANDUZ</option><option value="foto_tabellini/MUSCOLO.png?v=1777942682">MUSCOLO</option><option value="foto_tabellini/NANCY.png?v=1777942682">NANCY</option><option value="foto_tabellini/MORLAC.png?v=1777942682">MORLAC</option><option value="foto_tabellini/JACOPO.png?v=1777942682">JACOPO</option><option value="foto_tabellini/RUDY.png?v=1777942682">RUDY</option><option value="foto_tabellini/FANFU.png?v=1777942682">FANFU</option><option value="foto_tabellini/ALESSIO.png?v=1777942682">ALESSIO</option><option value="foto_tabellini/KEMIM.png?v=1777942682">KEMIM</option><option value="foto_tabellini/MAX.png?v=1777942682">MAX</option><option value="foto_tabellini/GIULIO's Fam..png?v=1777942682">GIULIO's Fam.</option><option value="foto_tabellini/GENNARO.png?v=1777942682">GENNARO</option><option value="foto_tabellini/JONA.png?v=1777942682">JONA</option><option value="foto_tabellini/ANDRY.png?v=1777942682">ANDRY</option><option value="foto_tabellini/VITO.png?v=1777942682">VITO</option><option value="foto_tabellini/MISTER FOX.png?v=1777942682">MISTER FOX</option><option value="foto_tabellini/MIRACOL.png?v=1777942682">MIRACOL</option><option value="foto_tabellini/ELENA.png?v=1777942682">ELENA</option><option value="foto_tabellini/SANDRO.png?v=1777942682">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1777942682">ROBERT</option><option value="foto_tabellini/ALFONSO.png?v=1777942682">ALFONSO</option><option value="foto_tabellini/CAOS.png?v=1777942682">CAOS</option><option value="foto_tabellini/TUZIA.png?v=1777942682">TUZIA</option><option value="foto_tabellini/NICOLO'.png?v=1777942682">NICOLO'</option><option value="foto_tabellini/DANIELE.png?v=1777942682">DANIELE</option><option value="foto_tabellini/REAL THEA.png?v=1777942682">REAL THEA</option><option value="foto_tabellini/REMEDIA.png?v=1777942682">REMEDIA</option><option value="foto_tabellini/GIUSEPPE.png?v=1777942682">GIUSEPPE</option><option value="foto_tabellini/LIONS on fire.png?v=1777942682">LIONS on fire</option><option value="foto_tabellini/TAURINORUM.png?v=1777942682">TAURINORUM</option><option value="foto_tabellini/GUERRINO.png?v=1777942682">GUERRINO</option><option value="foto_tabellini/GIACINTO.png?v=1777942682">GIACINTO</option><option value="foto_tabellini/NINO.png?v=1777942682">NINO</option><option value="foto_tabellini/MARK.png?v=1777942682">MARK</option><option value="foto_tabellini/LUCA.png?v=1777942682">LUCA</option><option value="foto_tabellini/CICCIOPIO.png?v=1777942682">CICCIOPIO</option><option value="foto_tabellini/PALA.png?v=1777942682">PALA</option><option value="foto_tabellini/GABRIPASK.png?v=1777942682">GABRIPASK</option><option value="foto_tabellini/ALBYSK.png?v=1777942682">ALBYSK</option><option value="foto_tabellini/RIGO.png?v=1777942682">RIGO</option><option value="foto_tabellini/DEVILS.png?v=1777942682">DEVILS</option><option value="foto_tabellini/ETTORE.png?v=1777942682">ETTORE</option><option value="foto_tabellini/PLAZATI.png?v=1777942682">PLAZATI</option><option value="foto_tabellini/ANTONIO.png?v=1777942682">ANTONIO</option><option value="foto_tabellini/PIOCICCIO.png?v=1777942682">PIOCICCIO</option><option value="foto_tabellini/PAOLO.png?v=1777942682">PAOLO</option><option value="foto_tabellini/FLAVIO.png?v=1777942682">FLAVIO</option><option value="foto_tabellini/DENNY.png?v=1777942682">DENNY</option>
+                </select>
+                <div id="container-foto"><img id="foto-tabellino" src=""></div>
+                <div class="footer-info">Ultimo aggiornamento locale: 02:58:02</div>
+            </div>
+            
+            <hr style="border: 5px solid gold; margin: 60px 0;">
+            <div class="section" style="border: 3px solid gold; background: #0a0a0a; padding: 30px; border-radius: 15px;">
+                <h1 style="color: gold; font-size: 52px; text-shadow: 2px 2px black; margin-bottom: 40px; font-family: 'AR CENA', sans-serif;">🏆 1° Coppa SHECTOR 🏆</h1>
+                <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 30px;">
+                        <img src="immagini_fisse/Primafoto.png" style="width: 25%; max-height: 560px; object-fit: contain; border: 2px solid gold;">
+                        <img src="foto_coppa_1a.png?v=1777942682" style="width: 25%; height: 950px; object-fit: contain; border: 2px solid #444;">
+                        <img src="foto_coppa_1b.png?v=1777942682" style="width: 25%; height: 950px; object-fit: contain; border: 2px solid #444;">
+                    </div>
+                </div>
+                <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 20px;">
+                        <div style="width: 28%; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                            <img src="immagini_fisse/2afase.png" style="width: 100%; height: auto;">
+                            <img src="immagini_fisse/CLASS2AFASE.png" style="width: 75%; height: auto; border: 1px solid gold;">
+                        </div>
+                        <div style="width: 52%;">
+                            <img src="foto_coppa_2.png?v=1777942682" style="width: 100%; border: 2px solid #444;">
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 20px;">
+                        <img src="immagini_fisse/3afase.png" style="width: 30%; height: auto;">
+                        <img src="foto_coppa_3.png?v=1777942682" style="width: 65%; border: 2px solid #444;">
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                function mostraFoto(selectElement) {
+                    var url = selectElement.value;
+                    var img = document.getElementById('foto-tabellino');
+                    if(url === "") { img.style.display = "none"; } 
+                    else { 
+                        img.src = url; 
+                        img.style.display = "inline-block";
+                        img.className = selectElement.options[selectElement.selectedIndex].text === "I PRONOSTICI DI TUTTI" ? "foto-wide" : "foto-standard";
+                    }
+                }
+            </script>
+        </body>
+        </html>
+        
