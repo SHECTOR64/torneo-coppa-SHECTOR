@@ -47,11 +47,17 @@ def scatta_foto_precise():
             percorso_finale = os.path.join(cartella_destinazione, nome_file)
             foglio.range(range_celle).to_png(percorso_finale)
 
-        # --- SCATTI ---
+        # --- SCATTI STANDARD ---
         salva_foto_sicura(sht_main, "B4:T19", percorso_foto_sottocartella, "risultati_partite.png")
         salva_foto_sicura(sht_main, "B24:N38", percorso_foto_sottocartella, "foto_extra.png")
         salva_foto_sicura(sht_main, "AC3:BJ62", percorso_foto_sottocartella, "classifica_turno.png")
         salva_foto_sicura(sht_prono, "A1:AU58", percorso_foto_sottocartella, "I PRONOSTICI DI TUTTI.png")
+        
+        # --- SCATTI COPPA ---
+        # MODIFICATO: Prende AD8:AE62 dal foglio PRONO&RISULTATI (sht_main)
+        salva_foto_sicura(sht_main, "AD8:AE62", cartella_lavoro, "foto_coppa_1a.png")
+        
+        # Questa rimane dal foglio CLASSIFICHE COPPA
         salva_foto_sicura(sht_coppa_foglio, "L175:AA220", cartella_lavoro, "foto_coppa_3.png")
 
         # --- TABELLINI ---
@@ -120,7 +126,6 @@ def scatta_foto_precise():
             <div style="border: 3px solid gold; background: #0a0a0a; padding: 30px; border-radius: 15px;">
                 <h1 style="color: gold; font-size: 52px;">🏆 1° Coppa SHECTOR 🏆</h1>
                 
-                <!-- SETTORE 1 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
                         <img src="immagini_fisse/Primafoto.png" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
@@ -129,7 +134,6 @@ def scatta_foto_precise():
                     </div>
                 </div>
 
-                <!-- SETTORE 2 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; gap: 20px;">
                         <div style="width: 28%;">
@@ -140,12 +144,9 @@ def scatta_foto_precise():
                     </div>
                 </div>
 
-                <!-- SETTORE 3 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
-                        <!-- Logo 3a fase: altezza forzata come Primafoto -->
                         <img src="immagini_fisse/3afase.png" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
-                        <!-- Foto risultati: larghezza originale (65%) e allineamento in alto -->
                         <img src="foto_coppa_3.png?v={timestamp_url}" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
                     </div>
                 </div>
