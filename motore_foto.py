@@ -13,12 +13,12 @@ NOME_FOGLIO_COPPA = "CLASSIFICHE COPPA"
 CARTELLA_FOTO_NOME = "foto_tabellini"
 NOME_FILE_WEB = "visualizza_tabellini.html"
 
-# --- [PARAMETRI ALTEZZA SETTORE 1 COPPA] ---
-ALTEZZA_PRIMA_FOTO = "480px"   # Altezza per Primafoto.png e ora anche per 3afase.png
-ALTEZZA_ALRE_FOTO = "920px"    # Altezza per foto_coppa_1a e 1b
+# --- [PARAMETRI ALTEZZA SETTORE COPPA] ---
+# Usiamo la stessa variabile per garantire che logo e tabella siano alti uguali
+ALTEZZA_RIFERIMENTO_COPPA = "480px"   
+ALTEZZA_ALRE_FOTO = "920px"    
 
 def scatta_foto_precise():
-    # Cartella dove hai il repository GitHub
     cartella_lavoro = r"C:\Users\semmd\Documents\GitHub\torneo-coppa-SHECTOR"
     
     if not os.path.exists(cartella_lavoro): os.makedirs(cartella_lavoro)
@@ -30,7 +30,6 @@ def scatta_foto_precise():
     if not os.path.exists(percorso_foto_sottocartella): os.makedirs(percorso_foto_sottocartella)
 
     try:
-        # Tenta di collegarsi all'Excel aperto
         try:
             wb = xw.Book.caller()
         except:
@@ -49,16 +48,14 @@ def scatta_foto_precise():
             percorso_finale = os.path.join(cartella_destinazione, nome_file)
             foglio.range(range_celle).to_png(percorso_finale)
 
-        # --- SCATTI STANDARD ---
+        # --- SCATTI ---
         salva_foto_sicura(sht_main, "B4:T19", percorso_foto_sottocartella, "risultati_partite.png")
         salva_foto_sicura(sht_main, "B24:N38", percorso_foto_sottocartella, "foto_extra.png")
         salva_foto_sicura(sht_main, "AC3:BJ62", percorso_foto_sottocartella, "classifica_turno.png")
         salva_foto_sicura(sht_prono, "A1:AU58", percorso_foto_sottocartella, "I PRONOSTICI DI TUTTI.png")
-        
-        # Foto per la sezione Coppa (salvate nella root della cartella lavoro)
         salva_foto_sicura(sht_coppa_foglio, "L175:AA220", cartella_lavoro, "foto_coppa_3.png")
 
-        # --- GENERAZIONE TABELLINI GIOCATORI ---
+        # --- TABELLINI ---
         lista_nomi = sht_main.range("AD10:AD62").value
         riga_5 = sht_main.range("5:5").value
         nomi_processati = ["I PRONOSTICI DI TUTTI"]
@@ -75,7 +72,7 @@ def scatta_foto_precise():
 
         menu_options = "".join([f'<option value="{CARTELLA_FOTO_NOME}/{n}.png?v={timestamp_url}">{n}</option>' for n in nomi_processati])
         
-        # --- HTML CON ALTEZZE PRECISE ---
+        # --- HTML AGGIORNATO ---
         html_content = f'''
         <!DOCTYPE html>
         <html lang="it">
@@ -124,14 +121,16 @@ def scatta_foto_precise():
             <div style="border: 3px solid gold; background: #0a0a0a; padding: 30px; border-radius: 15px;">
                 <h1 style="color: gold; font-size: 52px;">🏆 1° Coppa SHECTOR 🏆</h1>
                 
+                <!-- SETTORE 1 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
-                        <img src="immagini_fisse/Primafoto.png" style="height: {ALTEZZA_PRIMA_FOTO}; border: 2px solid gold; border-radius: 5px;">
+                        <img src="immagini_fisse/Primafoto.png" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
                         <img src="foto_coppa_1a.png?v={timestamp_url}" style="height: {ALTEZZA_ALRE_FOTO}; border: 1px solid #444; border-radius: 5px;">
                         <img src="foto_coppa_1b.png?v={timestamp_url}" style="height: {ALTEZZA_ALRE_FOTO}; border: 1px solid #444; border-radius: 5px;">
                     </div>
                 </div>
 
+                <!-- SETTORE 2 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; gap: 20px;">
                         <div style="width: 28%;">
@@ -142,10 +141,11 @@ def scatta_foto_precise():
                     </div>
                 </div>
 
+                <!-- SETTORE 3 (Modificato per allineamento perfetto) -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
-                    <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
-                        <img src="immagini_fisse/3afase.png" style="height: {ALTEZZA_PRIMA_FOTO}; border: 2px solid gold; border-radius: 5px;">
-                        <img src="foto_coppa_3.png?v={timestamp_url}" style="width: 65%; border: 2px solid gold;">
+                    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
+                        <img src="immagini_fisse/3afase.png" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
+                        <img src="foto_coppa_3.png?v={timestamp_url}" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
                     </div>
                 </div>
             </div>
@@ -157,10 +157,9 @@ def scatta_foto_precise():
         with open(percorso_web, "w", encoding="utf-8") as f: f.write(html_content)
         webbrowser.open(f"file:///{percorso_web.replace(os.sep, '/')}")
 
-        # --- INVIO A GITHUB ---
+        # --- GITHUB ---
         p_git = r"C:\Program Files\Git\bin\git.exe"
         git_cmd = p_git if os.path.exists(p_git) else "git"
-        
         subprocess.run([git_cmd, "add", "--all"], cwd=cartella_lavoro)
         subprocess.run([git_cmd, "commit", "-m", f"Update {timestamp_label}"], cwd=cartella_lavoro)
         subprocess.run([git_cmd, "pull", "--rebase", "origin", "main"], cwd=cartella_lavoro)
@@ -168,9 +167,6 @@ def scatta_foto_precise():
         
     except Exception as e:
         root = tk.Tk(); root.withdraw(); messagebox.showerror("ERRORE", str(e)); root.destroy()
-
-if __name__ == "__main__":
-    scatta_foto_precise()
 
 if __name__ == "__main__":
     scatta_foto_precise()
