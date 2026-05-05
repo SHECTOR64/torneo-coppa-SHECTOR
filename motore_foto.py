@@ -13,8 +13,7 @@ NOME_FOGLIO_COPPA = "CLASSIFICHE COPPA"
 CARTELLA_FOTO_NOME = "foto_tabellini"
 NOME_FILE_WEB = "visualizza_tabellini.html"
 
-# --- [PARAMETRI ALTEZZA SETTORE COPPA] ---
-# Usiamo la stessa variabile per garantire che logo e tabella siano alti uguali
+# --- [PARAMETRI ALTEZZA] ---
 ALTEZZA_RIFERIMENTO_COPPA = "480px"   
 ALTEZZA_ALRE_FOTO = "920px"    
 
@@ -72,7 +71,7 @@ def scatta_foto_precise():
 
         menu_options = "".join([f'<option value="{CARTELLA_FOTO_NOME}/{n}.png?v={timestamp_url}">{n}</option>' for n in nomi_processati])
         
-        # --- HTML AGGIORNATO ---
+        # --- HTML ---
         html_content = f'''
         <!DOCTYPE html>
         <html lang="it">
@@ -141,11 +140,13 @@ def scatta_foto_precise():
                     </div>
                 </div>
 
-                <!-- SETTORE 3 (Modificato per allineamento perfetto) -->
+                <!-- SETTORE 3 -->
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
+                        <!-- Logo 3a fase: altezza forzata come Primafoto -->
                         <img src="immagini_fisse/3afase.png" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
-                        <img src="foto_coppa_3.png?v={timestamp_url}" style="height: {ALTEZZA_RIFERIMENTO_COPPA}; border: 2px solid gold; border-radius: 5px;">
+                        <!-- Foto risultati: larghezza originale (65%) e allineamento in alto -->
+                        <img src="foto_coppa_3.png?v={timestamp_url}" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
                     </div>
                 </div>
             </div>
