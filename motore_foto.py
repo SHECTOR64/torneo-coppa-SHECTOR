@@ -54,10 +54,13 @@ def scatta_foto_precise():
         salva_foto_sicura(sht_prono, "A1:AU58", percorso_foto_sottocartella, "I PRONOSTICI DI TUTTI.png")
         
         # --- SCATTI COPPA ---
-        # MODIFICATO: Prende AD8:AE62 dal foglio PRONO&RISULTATI (sht_main)
+        # Foto 1a dal foglio PRONO&RISULTATI
         salva_foto_sicura(sht_main, "AD8:AE62", cartella_lavoro, "foto_coppa_1a.png")
         
-        # Questa rimane dal foglio CLASSIFICHE COPPA
+        # Foto 1b dal foglio PRONO&RISULTATI (Coordinate aggiornate a W4:AA62)
+        salva_foto_sicura(sht_main, "W4:AA62", cartella_lavoro, "foto_coppa_1b.png")
+        
+        # Foto 3 dal foglio CLASSIFICHE COPPA
         salva_foto_sicura(sht_coppa_foglio, "L175:AA220", cartella_lavoro, "foto_coppa_3.png")
 
         # --- TABELLINI ---
