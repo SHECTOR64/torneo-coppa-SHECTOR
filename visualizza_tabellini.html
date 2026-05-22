@@ -3,6 +3,7 @@
         <html lang="it">
         <head>
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>16° Torneo Pronostici - 2025/26</title>
             <style>
                 body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; margin: 0; padding: 15px; }
@@ -44,11 +45,11 @@
                 .coppa1-img-piccola { height: 460px; border: 2px solid gold; border-radius: 5px; }
                 .coppa1-sub { height: 920px; border: 1px solid #444; border-radius: 5px; }
 
-                /* INTERFACCIA OVERLAY CON FOTO FORZATE ALLA STESSA IDENTICA DIMENSIONE */
+                /* --- CSS OVERLAY STRUTTURATO PER PC (SCHERMI GRANDI) --- */
                 #winner-overlay {
                     position: fixed;
                     top: 0; left: 0; width: 100%; height: 100%;
-                    background: rgba(0, 0, 0, 0.96);
+                    background: rgba(0, 0, 0, 0.97);
                     display: flex; justify-content: center; align-items: center;
                     z-index: 9999;
                     padding: 10px;
@@ -67,13 +68,13 @@
                 }
                 #winner-title {
                     font-family: "AR CENA", sans-serif;
-                    font-size: clamp(28px, 4.5vh, 44px);
+                    font-size: clamp(24px, 3.8vh, 36px);
                     font-weight: bold;
                     color: #ffffff;
-                    margin: 0 0 15px 0;
+                    margin: 0 0 12px 0;
                     text-shadow: 2px 2px 10px rgba(0, 255, 136, 0.3);
-                    letter-spacing: 1.5px;
-                    line-height: 1.2;
+                    letter-spacing: 1.2px;
+                    line-height: 1.1;
                     flex-shrink: 0;
                 }
                 #winner-content-horizontal {
@@ -87,31 +88,30 @@
                     background: #111111;
                     box-shadow: 0 0 35px rgba(0, 255, 136, 0.2);
                     box-sizing: border-box;
-                    padding: 15px;
-                    max-height: 68vh;
+                    padding: 12px;
+                    max-height: 75vh;
                     max-width: 100%;
-                    overflow: hidden;
                 }
                 #winner-content-horizontal img {
-                    height: 60vh;        /* Altezza fissa e bloccata per tutte */
-                    width: 28vw;         /* Larghezza fissa e bloccata per tutte */
+                    height: 70vh;
+                    width: 29vw;
                     display: block;
                     border-radius: 6px;
                     border: 1px solid #333;
-                    object-fit: fill;    /* Forza il riempimento totale per renderle millimetricamente uguali */
-                    padding: 2px;
+                    object-fit: fill;
+                    padding: 1px;
                 }
                 #winner-overlay #winner-stats {
-                    margin-top: 15px;
+                    margin-top: 12px;
                     width: 100%;
                     text-align: center;
                     flex-shrink: 0;
                 }
                 .stat-line {
                     font-family: "AR CENA", sans-serif;
-                    font-size: clamp(20px, 3vh, 26px);
+                    font-size: clamp(18px, 2.5vh, 22px);
                     color: #ffffff;
-                    margin: 4px 0;
+                    margin: 2px 0;
                     letter-spacing: 0.8px;
                     font-weight: bold;
                     text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
@@ -121,6 +121,52 @@
                     font-size: 1.2em;
                     padding: 0 4px;
                 }
+
+                /* --- INTERVENTO ESCLUSIVO PER MOBILI (ISOLATO ALL'OVERLAY) --- */
+                @media (max-width: 768px) {
+                    #winner-overlay {
+                        display: block !important; /* Permette all'intero overlay di scorrere verticalmente da capo a fondo */
+                        overflow-y: auto !important;
+                        -webkit-overflow-scrolling: touch;
+                        padding: 15px 10px;
+                    }
+                    #winner-container {
+                        display: block !important;
+                        max-width: 100%;
+                        height: auto !important;
+                        max-height: none !important;
+                    }
+                    #winner-title {
+                        font-size: 26px !important;
+                        margin: 10px 0 20px 0 !important;
+                        text-align: center;
+                    }
+                    #winner-content-horizontal {
+                        flex-direction: column !important; /* Incolonna le foto */
+                        max-height: none !important;      /* Rimuove i blocchi di altezza per far partire tutto dall'inizio */
+                        width: 100% !important;
+                        border: none !important;           /* Rimuove i bordi che stringevano il box */
+                        background: transparent !important;
+                        box-shadow: none !important;
+                        padding: 0 !important;
+                        gap: 25px !important;             /* Spazio ordinato tra una classifica e l'altra */
+                    }
+                    #winner-content-horizontal img {
+                        width: 100% !important;            /* Sfrutta tutta la larghezza del display del telefono */
+                        height: auto !important;           /* Altezza proporzionata automatica per non deformare o tagliare */
+                        max-height: none !important;       /* Nessun limite, così parte dalla prima riga della foto */
+                        object-fit: contain !important;
+                        border: 2px solid #00ff88 !important; /* Applica il bordo verde direttamente alle singole foto incolonnate */
+                        border-radius: 8px !important;
+                    }
+                    #winner-overlay #winner-stats {
+                        margin-top: 25px !important;
+                        margin-bottom: 20px !important;
+                    }
+                    .stat-line {
+                        font-size: 20px !important;
+                    }
+                }
             </style>
         </head>
         <body>
@@ -129,9 +175,9 @@
             <div id="winner-container">
                 <div id="winner-title">CLASSIFICHE aggiornate<br>dopo 1 partite</div>
                 <div id="winner-content-horizontal">
-                    <img src="foto_tabellini/overlay_class_1.png?v=1779483560">
-                    <img src="foto_tabellini/overlay_class_2.png?v=1779483560">
-                    <img src="foto_tabellini/overlay_class_3.png?v=1779483560">
+                    <img src="foto_tabellini/overlay_class_1.png?v=1779483706">
+                    <img src="foto_tabellini/overlay_class_2.png?v=1779483706">
+                    <img src="foto_tabellini/overlay_class_3.png?v=1779483706">
                 </div>
                 <div id="winner-stats">
                     <div class="stat-line">tutti i dettagli fra <span id="countdown-timer">15</span> secondi</div>
@@ -157,14 +203,14 @@
             <div class="settore-verde">
                 <span style="color: #00ff88; font-size: 32px; text-decoration: underline;">⚽ I RISULTATI ⚽</span>
                 <div class="flex-top" style="margin-top:20px;">
-                    <div style="flex: 2;"><img src="foto_tabellini/risultati_partite.png?v=1779483560" class="img-risultati"></div>
-                    <div style="flex: 1;"><img src="foto_tabellini/foto_extra.png?v=1779483560" class="img-extra"></div>
+                    <div style="flex: 2;"><img src="foto_tabellini/risultati_partite.png?v=1779483706" class="img-risultati"></div>
+                    <div style="flex: 1;"><img src="foto_tabellini/foto_extra.png?v=1779483706" class="img-extra"></div>
                 </div>
             </div>
 
             <div class="settore-verde">
                 <span style="color: #00ff88; font-size: 32px; text-decoration: underline;">📊 LE CLASSIFICHE 📊</span>
-                <img src="foto_tabellini/classifica_turno.png?v=1779483560" class="img-max" style="margin-top:20px;">
+                <img src="foto_tabellini/classifica_turno.png?v=1779483706" class="img-max" style="margin-top:20px;">
             </div>
 
             <div class="settore-verde">
@@ -184,7 +230,7 @@
                         }
                     }">
                     <option value="">-- SELEZIONA GIOCATORE --</option>
-                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1779483560">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/ALESSIO.png?v=1779483560">ALESSIO</option><option value="foto_tabellini/FANFU.png?v=1779483560">FANFU</option><option value="foto_tabellini/GIUSEPPE.png?v=1779483560">GIUSEPPE</option><option value="foto_tabellini/MAX.png?v=1779483560">MAX</option><option value="foto_tabellini/ALFONSO.png?v=1779483560">ALFONSO</option><option value="foto_tabellini/ELENA.png?v=1779483560">ELENA</option><option value="foto_tabellini/PLAZATI.png?v=1779483560">PLAZATI</option><option value="foto_tabellini/CAOS.png?v=1779483560">CAOS</option><option value="foto_tabellini/DEVILS.png?v=1779483560">DEVILS</option><option value="foto_tabellini/REMEDIA.png?v=1779483560">REMEDIA</option><option value="foto_tabellini/ROBERT.png?v=1779483560">ROBERT</option><option value="foto_tabellini/PANDUZ.png?v=1779483560">PANDUZ</option><option value="foto_tabellini/ROSS.png?v=1779483560">ROSS</option><option value="foto_tabellini/MIRACOL.png?v=1779483560">MIRACOL</option><option value="foto_tabellini/ETTORE.png?v=1779483560">ETTORE</option><option value="foto_tabellini/MUSCOLO.png?v=1779483560">MUSCOLO</option><option value="foto_tabellini/SANDRO.png?v=1779483560">SANDRO</option><option value="foto_tabellini/PALA.png?v=1779483560">PALA</option><option value="foto_tabellini/PIOCICCIO.png?v=1779483560">PIOCICCIO</option><option value="foto_tabellini/RUDY.png?v=1779483560">RUDY</option><option value="foto_tabellini/CICCIOPIO.png?v=1779483560">CICCIOPIO</option><option value="foto_tabellini/GIACINTO.png?v=1779483560">GIACINTO</option><option value="foto_tabellini/RIGO.png?v=1779483560">RIGO</option><option value="foto_tabellini/ANTONIO.png?v=1779483560">ANTONIO</option><option value="foto_tabellini/THEA Five.png?v=1779483560">THEA Five</option><option value="foto_tabellini/JONA.png?v=1779483560">JONA</option><option value="foto_tabellini/GUERRINO.png?v=1779483560">GUERRINO</option><option value="foto_tabellini/MORLAC.png?v=1779483560">MORLAC</option><option value="foto_tabellini/ELEMENTARY.png?v=1779483560">ELEMENTARY</option><option value="foto_tabellini/VITO.png?v=1779483560">VITO</option><option value="foto_tabellini/NICOLO'.png?v=1779483560">NICOLO'</option><option value="foto_tabellini/LUCA.png?v=1779483560">LUCA</option><option value="foto_tabellini/ALBYSK.png?v=1779483560">ALBYSK</option><option value="foto_tabellini/NANCY.png?v=1779483560">NANCY</option><option value="foto_tabellini/FRANCO.png?v=1779483560">FRANCO</option><option value="foto_tabellini/TUZIA.png?v=1779483560">TUZIA</option><option value="foto_tabellini/ANDREA.png?v=1779483560">ANDREA</option><option value="foto_tabellini/REAL THEA.png?v=1779483560">REAL THEA</option><option value="foto_tabellini/GABRIPASK.png?v=1779483560">GABRIPASK</option><option value="foto_tabellini/ANDRY.png?v=1779483560">ANDRY</option><option value="foto_tabellini/TAURINORUM.png?v=1779483560">TAURINORUM</option><option value="foto_tabellini/LIONS on fire.png?v=1779483560">LIONS on fire</option><option value="foto_tabellini/KEMIM.png?v=1779483560">KEMIM</option><option value="foto_tabellini/GENNARO.png?v=1779483560">GENNARO</option><option value="foto_tabellini/JACOPO.png?v=1779483560">JACOPO</option><option value="foto_tabellini/MISTER FOX.png?v=1779483560">MISTER FOX</option><option value="foto_tabellini/PAOLO.png?v=1779483560">PAOLO</option><option value="foto_tabellini/NINO.png?v=1779483560">NINO</option><option value="foto_tabellini/FLAVIO.png?v=1779483560">FLAVIO</option><option value="foto_tabellini/DANIELE.png?v=1779483560">DANIELE</option><option value="foto_tabellini/DENNY.png?v=1779483560">DENNY</option><option value="foto_tabellini/GIULIO's Fam..png?v=1779483560">GIULIO's Fam.</option><option value="foto_tabellini/MARK.png?v=1779483560">MARK</option>
+                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1779483706">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/ALESSIO.png?v=1779483706">ALESSIO</option><option value="foto_tabellini/FANFU.png?v=1779483706">FANFU</option><option value="foto_tabellini/GIUSEPPE.png?v=1779483706">GIUSEPPE</option><option value="foto_tabellini/MAX.png?v=1779483706">MAX</option><option value="foto_tabellini/ALFONSO.png?v=1779483706">ALFONSO</option><option value="foto_tabellini/ELENA.png?v=1779483706">ELENA</option><option value="foto_tabellini/PLAZATI.png?v=1779483706">PLAZATI</option><option value="foto_tabellini/CAOS.png?v=1779483706">CAOS</option><option value="foto_tabellini/DEVILS.png?v=1779483706">DEVILS</option><option value="foto_tabellini/REMEDIA.png?v=1779483706">REMEDIA</option><option value="foto_tabellini/ROBERT.png?v=1779483706">ROBERT</option><option value="foto_tabellini/PANDUZ.png?v=1779483706">PANDUZ</option><option value="foto_tabellini/ROSS.png?v=1779483706">ROSS</option><option value="foto_tabellini/MIRACOL.png?v=1779483706">MIRACOL</option><option value="foto_tabellini/ETTORE.png?v=1779483706">ETTORE</option><option value="foto_tabellini/MUSCOLO.png?v=1779483706">MUSCOLO</option><option value="foto_tabellini/SANDRO.png?v=1779483706">SANDRO</option><option value="foto_tabellini/PALA.png?v=1779483706">PALA</option><option value="foto_tabellini/PIOCICCIO.png?v=1779483706">PIOCICCIO</option><option value="foto_tabellini/RUDY.png?v=1779483706">RUDY</option><option value="foto_tabellini/CICCIOPIO.png?v=1779483706">CICCIOPIO</option><option value="foto_tabellini/GIACINTO.png?v=1779483706">GIACINTO</option><option value="foto_tabellini/RIGO.png?v=1779483706">RIGO</option><option value="foto_tabellini/ANTONIO.png?v=1779483706">ANTONIO</option><option value="foto_tabellini/THEA Five.png?v=1779483706">THEA Five</option><option value="foto_tabellini/JONA.png?v=1779483706">JONA</option><option value="foto_tabellini/GUERRINO.png?v=1779483706">GUERRINO</option><option value="foto_tabellini/MORLAC.png?v=1779483706">MORLAC</option><option value="foto_tabellini/ELEMENTARY.png?v=1779483706">ELEMENTARY</option><option value="foto_tabellini/VITO.png?v=1779483706">VITO</option><option value="foto_tabellini/NICOLO'.png?v=1779483706">NICOLO'</option><option value="foto_tabellini/LUCA.png?v=1779483706">LUCA</option><option value="foto_tabellini/ALBYSK.png?v=1779483706">ALBYSK</option><option value="foto_tabellini/NANCY.png?v=1779483706">NANCY</option><option value="foto_tabellini/FRANCO.png?v=1779483706">FRANCO</option><option value="foto_tabellini/TUZIA.png?v=1779483706">TUZIA</option><option value="foto_tabellini/ANDREA.png?v=1779483706">ANDREA</option><option value="foto_tabellini/REAL THEA.png?v=1779483706">REAL THEA</option><option value="foto_tabellini/GABRIPASK.png?v=1779483706">GABRIPASK</option><option value="foto_tabellini/ANDRY.png?v=1779483706">ANDRY</option><option value="foto_tabellini/TAURINORUM.png?v=1779483706">TAURINORUM</option><option value="foto_tabellini/LIONS on fire.png?v=1779483706">LIONS on fire</option><option value="foto_tabellini/KEMIM.png?v=1779483706">KEMIM</option><option value="foto_tabellini/GENNARO.png?v=1779483706">GENNARO</option><option value="foto_tabellini/JACOPO.png?v=1779483706">JACOPO</option><option value="foto_tabellini/MISTER FOX.png?v=1779483706">MISTER FOX</option><option value="foto_tabellini/PAOLO.png?v=1779483706">PAOLO</option><option value="foto_tabellini/NINO.png?v=1779483706">NINO</option><option value="foto_tabellini/FLAVIO.png?v=1779483706">FLAVIO</option><option value="foto_tabellini/DANIELE.png?v=1779483706">DANIELE</option><option value="foto_tabellini/DENNY.png?v=1779483706">DENNY</option><option value="foto_tabellini/GIULIO's Fam..png?v=1779483706">GIULIO's Fam.</option><option value="foto_tabellini/MARK.png?v=1779483706">MARK</option>
                 </select>
                 <br><img id="f-tab" style="display:none; width:95%; border: 2px solid #00ff88; margin-top:25px; border-radius:12px;">
             </div>
@@ -197,8 +243,8 @@
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
                         <img src="immagini_fisse/Primafoto.png" class="coppa1-img-piccola">
-                        <img src="foto_coppa_1a.png?v=1779483560" class="coppa1-sub">
-                        <img src="foto_coppa_1b.png?v=1779483560" class="coppa1-sub">
+                        <img src="foto_coppa_1a.png?v=1779483706" class="coppa1-sub">
+                        <img src="foto_coppa_1b.png?v=1779483706" class="coppa1-sub">
                     </div>
                 </div>
 
@@ -208,18 +254,18 @@
                             <img src="immagini_fisse/2afase.png" style="width: 100%;">
                             <img src="immagini_fisse/CLASS2AFASE.png" style="width: 80%; border: 1px solid gold;">
                         </div>
-                        <img src="foto_coppa_2.png?v=1779483560" style="width: 50%; border: 2px solid #444;">
+                        <img src="foto_coppa_2.png?v=1779483706" style="width: 50%; border: 2px solid #444;">
                     </div>
                 </div>
 
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
                         <img src="immagini_fisse/3afase.png" style="width: 30%; border-radius: 5px;">
-                        <img src="foto_coppa_3.png?v=1779483560" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
+                        <img src="foto_coppa_3.png?v=1779483706" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
                     </div>
                 </div>
             </div>
-            <p style="color:#00ff88; margin-top:20px;">Ultimo aggiornamento: 22/05/2026 22:59:20</p>
+            <p style="color:#00ff88; margin-top:20px;">Ultimo aggiornamento: 22/05/2026 23:01:46</p>
 
             
         <script>
