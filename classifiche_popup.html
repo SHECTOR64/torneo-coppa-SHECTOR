@@ -1,0 +1,83 @@
+
+        <!DOCTYPE html>
+        <html lang="it">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CLASSIFICHE aggiornate dopo 1 partite</title>
+            <style>
+                body { 
+                    background-color: #050505; 
+                    color: white; 
+                    font-family: "AR CENA", sans-serif; 
+                    text-align: center; 
+                    margin: 0; 
+                    padding: 20px; 
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+                h1 {
+                    font-size: 36px;
+                    color: #00ff88;
+                    text-shadow: 0 0 10px rgba(0,255,136,0.4);
+                    margin-bottom: 25px;
+                }
+                .classifiche-box {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 15px;
+                    background: #111;
+                    padding: 15px;
+                    border: 3px solid #00ff88;
+                    border-radius: 12px;
+                    box-shadow: 0 0 30px rgba(0,255,136,0.15);
+                }
+                .classifiche-box img {
+                    width: 32%;
+                    height: auto;
+                    border-radius: 6px;
+                    border: 1px solid #333;
+                }
+                .footer-text {
+                    margin-top: 25px;
+                    font-size: 20px;
+                    color: #aaa;
+                }
+                
+                /* Ottimizzazione totale per Telefono */
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    h1 { font-size: 28px; margin-bottom: 15px; }
+                    .classifiche-box {
+                        flex-direction: column;
+                        gap: 20px;
+                        background: transparent;
+                        border: none;
+                        padding: 0;
+                        box-shadow: none;
+                    }
+                    .classifiche-box img {
+                        width: 100%;
+                        border: 3px solid #00ff88;
+                        border-radius: 10px;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🏆 CLASSIFICHE aggiornate dopo 1 partite 🏆</h1>
+                <div class="classifiche-box">
+                    <img src="foto_tabellini/overlay_class_1.png?v=1779489316">
+                    <img src="foto_tabellini/overlay_class_2.png?v=1779489316">
+                    <img src="foto_tabellini/overlay_class_3.png?v=1779489316">
+                </div>
+                <div class="footer-text">L'altra scheda del browser contiene tutti i dettagli del turno.</div>
+            </div>
+        </body>
+        </html>
+        
