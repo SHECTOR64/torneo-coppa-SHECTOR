@@ -3,24 +3,42 @@
         <html lang="it">
         <head>
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>16° Torneo Pronostici - 2025/26</title>
             <style>
-                body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; margin: 0; padding: 15px; }
+                /* Il body ha la sua larghezza minima intatta per non far muovere la pagina sotto */
+                body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; margin: 0; padding: 15px; min-width: 1200px; }
                 .settore-verde { border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
                 .flex-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; max-width: 1400px; margin: 0 auto; }
                 .img-risultati { width: 100%; max-width: 850px; border: 2px solid #00ff88; border-radius: 8px; }
                 .img-extra { width: 100%; max-width: 450px; border: 1px solid #444; border-radius: 8px; }
                 .img-max { width: 100%; border: 2px solid #00ff88; border-radius: 5px; }
                 
-                /* Stile base del Menu a Tendina dei TABELLINI (con freccia personalizzata Verde) */
-                select { 
-                    padding: 15px 50px 15px 15px; 
-                    border-radius: 8px; 
-                    background: #1a1a1a; 
-                    color: #00ff88; 
-                    border: 2px solid #00ff88; 
-                    font-size: 22px; 
-                    width: 90%; 
+                /* Layout Classifiche Temporanee (Struttura PC) */
+                .box-classifiche-orizzontale {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 15px;
+                    margin: 20px auto;
+                    max-width: 1200px;
+                }
+                .box-classifiche-orizzontale img {
+                    width: 32%;
+                    height: auto;
+                    border: 2px solid #ff0055;
+                    border-radius: 8px;
+                }
+
+                select {
+                    padding: 15px 50px 15px 15px;
+                    border-radius: 8px;
+                    background: #1a1a1a;
+                    color: #00ff88;
+                    border: 2px solid #00ff88;
+                    font-size: 22px;
+                    width: 90%;
                     max-width: 600px;
                     cursor: pointer;
                     -webkit-appearance: none;
@@ -32,92 +50,45 @@
                     background-size: 32px;
                 }
                 
-                /* Menu a Tendina dell'ALBO D'ORO (con freccia personalizzata Oro) */
-                .albo-select { 
-                    color: gold; 
-                    border-color: gold; 
-                    margin-top: 15px; 
+                .albo-select {
+                    color: gold;
+                    border-color: gold;
+                    margin-top: 15px;
                     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='gold' d='M7 10l5 5 5-5z'/></svg>");
                     background-size: 32px;
                 }
                 
                 .img-albo { max-width: 90%; border: 3px solid gold; border-radius: 10px; margin-top: 20px; display: none; }
-
-                /* Stili Coppa */
                 .coppa1-img-piccola { height: 460px; border: 2px solid gold; border-radius: 5px; }
                 .coppa1-sub { height: 920px; border: 1px solid #444; border-radius: 5px; }
 
-                /* OTTIMIZZAZIONE INTERFACCIA OVERLAY */
-                #winner-overlay {
-                    position: fixed;
-                    top: 0; left: 0; width: 100%; height: 100%;
-                    background: rgba(0, 0, 0, 0.96);
-                    display: flex; justify-content: center; align-items: center;
-                    z-index: 9999;
-                    padding: 10px;
-                    box-sizing: border-box;
-                }
-                #winner-container {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    width: auto; 
-                    max-width: 90vw;
-                    height: 100%;
-                    max-height: 98vh;
-                    box-sizing: border-box;
-                }
-                #winner-title {
-                    font-family: "AR CENA", sans-serif;
-                    font-size: clamp(32px, 5vh, 48px); /* Scritta sopra ingrandita */
-                    font-weight: bold;
-                    color: #ffffff;
-                    margin: 0 0 12px 0;
-                    text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
-                    letter-spacing: 1.5px;
-                    flex-shrink: 0;
-                }
-                #winner-content {
-                    display: inline-flex; /* Forza il box giallo a stringersi sull'immagine */
-                    justify-content: center;
-                    align-items: center;
-                    border: 4px solid gold;
-                    border-radius: 12px;
-                    background: #1a1a1a;
-                    box-shadow: 0 0 35px rgba(255, 215, 0, 0.5);
-                    box-sizing: border-box;
-                    padding: 6px;
-                    max-height: 65vh; 
-                    overflow: hidden;
-                }
-                #winner-content img {
-                    max-width: 100%;
-                    max-height: 63vh; 
-                    width: auto; 
-                    height: auto;
-                    display: block;
-                    border-radius: 6px;
-                }
-                #winner-overlay #winner-stats {
-                    margin-top: 15px;
-                    width: 100%;
-                    text-align: center;
-                    flex-shrink: 0;
-                }
-                .stat-line {
-                    font-family: "AR CENA", sans-serif;
-                    font-size: clamp(22px, 3.2vh, 28px); /* Scritte sotto ingrandite */
-                    color: #ffffff;
-                    margin: 4px 0;
-                    letter-spacing: 0.8px;
-                    font-weight: bold;
-                    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+                /* RESPONSIVE PER TELEFONO: Riorganizza solo le 3 classifiche */
+                @media (max-width: 768px) {
+                    body { min-width: 100% !important; padding: 10px; }
+                    #timer-titolo { font-size: 28px !important; }
+                    .box-classifiche-orizzontale {
+                        flex-direction: column !important;
+                        gap: 25px !important;
+                    }
+                    .box-classifiche-orizzontale img {
+                        width: 95% !important;
+                        max-width: 450px;
+                    }
                 }
             </style>
         </head>
         <body>
             
+        <div id="sezione-temporanea" class="settore-verde" style="border-color: #ff0055;">
+            <h2 id="timer-titolo" style="color: #ff0055; font-size: 38px; margin-top: 0;">🏆 CLASSIFICHE FINALI 🏆</h2>
+            <div class="box-classifiche-orizzontale">
+                <img src="foto_tabellini/overlay_class_1.png?v=1780989092">
+                <img src="foto_tabellini/overlay_class_2.png?v=1780989092">
+                <img src="foto_tabellini/overlay_class_3.png?v=1780989092">
+            </div>
+            <p style="font-size: 22px; margin-bottom: 0; color: #aaa;">Questo blocco scomparirà tra <span id="countdown-timer" style="color:#ff0055; font-weight:bold;">15</span> secondi</p>
+        </div>
+        
 
             <div class="settore-verde">
                 <h1 style="color: #00ff88; font-size: 52px; text-shadow: 3px 3px #004422; margin-bottom: 5px;">🏆 16° Torneo Pronostici 🏆 2025/26</h1>
@@ -136,34 +107,34 @@
             <div class="settore-verde">
                 <span style="color: #00ff88; font-size: 32px; text-decoration: underline;">⚽ I RISULTATI ⚽</span>
                 <div class="flex-top" style="margin-top:20px;">
-                    <div style="flex: 2;"><img src="foto_tabellini/risultati_partite.png?v=1780469636" class="img-risultati"></div>
-                    <div style="flex: 1;"><img src="foto_tabellini/foto_extra.png?v=1780469636" class="img-extra"></div>
+                    <div style="flex: 2;"><img src="foto_tabellini/risultati_partite.png?v=1780989092" class="img-risultati"></div>
+                    <div style="flex: 1;"><img src="foto_tabellini/foto_extra.png?v=1780989092" class="img-extra"></div>
                 </div>
             </div>
 
             <div class="settore-verde">
                 <span style="color: #00ff88; font-size: 32px; text-decoration: underline;">📊 LE CLASSIFICHE 📊</span>
-                <img src="foto_tabellini/classifica_turno.png?v=1780469636" class="img-max" style="margin-top:20px;">
+                <img src="foto_tabellini/classifica_turno.png?v=1780989092" class="img-max" style="margin-top:20px;">
             </div>
 
             <div class="settore-verde">
                 <span style="color: #00ff88; font-size: 32px; text-decoration: underline;">📝 I TABELLINI 📝</span><br><br>
                 
                 <select onchange="
-                    var img=document.getElementById('f-tab'); 
-                    if(this.value=='') { 
-                        img.style.display='none'; 
-                    } else { 
-                        img.src=this.value; 
+                    var img=document.getElementById('f-tab');
+                    if(this.value=='') {
+                        img.style.display='none';
+                    } else {
+                        img.src=this.value;
                         img.style.display='inline-block';
                         if(this.value.includes('PRONOSTICI')) {
-                            img.style.maxWidth = '1400px'; 
+                            img.style.maxWidth = '1400px';
                         } else {
-                            img.style.maxWidth = '850px'; 
+                            img.style.maxWidth = '850px';
                         }
                     }">
                     <option value="">-- SELEZIONA GIOCATORE --</option>
-                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1780469636">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/THEA Five.png?v=1780469636">THEA Five</option><option value="foto_tabellini/CICCIOPIO.png?v=1780469636">CICCIOPIO</option><option value="foto_tabellini/ALFONSO.png?v=1780469636">ALFONSO</option><option value="foto_tabellini/SANDRO.png?v=1780469636">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1780469636">ROBERT</option><option value="foto_tabellini/GIUSEPPE.png?v=1780469636">GIUSEPPE</option><option value="foto_tabellini/TUZIA.png?v=1780469636">TUZIA</option><option value="foto_tabellini/MIRACOL.png?v=1780469636">MIRACOL</option><option value="foto_tabellini/KEMIM.png?v=1780469636">KEMIM</option><option value="foto_tabellini/DEVILS.png?v=1780469636">DEVILS</option><option value="foto_tabellini/CAOS.png?v=1780469636">CAOS</option><option value="foto_tabellini/JACOPO.png?v=1780469636">JACOPO</option><option value="foto_tabellini/MAX.png?v=1780469636">MAX</option><option value="foto_tabellini/ELEMENTARY.png?v=1780469636">ELEMENTARY</option><option value="foto_tabellini/ELENA.png?v=1780469636">ELENA</option><option value="foto_tabellini/DENNY.png?v=1780469636">DENNY</option><option value="foto_tabellini/PALA.png?v=1780469636">PALA</option><option value="foto_tabellini/TAURINORUM.png?v=1780469636">TAURINORUM</option><option value="foto_tabellini/MORLAC.png?v=1780469636">MORLAC</option><option value="foto_tabellini/ETTORE.png?v=1780469636">ETTORE</option><option value="foto_tabellini/JONA.png?v=1780469636">JONA</option><option value="foto_tabellini/ALESSIO.png?v=1780469636">ALESSIO</option><option value="foto_tabellini/VITO.png?v=1780469636">VITO</option><option value="foto_tabellini/PLAZATI.png?v=1780469636">PLAZATI</option><option value="foto_tabellini/PANDUZ.png?v=1780469636">PANDUZ</option><option value="foto_tabellini/REMEDIA.png?v=1780469636">REMEDIA</option><option value="foto_tabellini/GIACINTO.png?v=1780469636">GIACINTO</option><option value="foto_tabellini/ANDREA.png?v=1780469636">ANDREA</option><option value="foto_tabellini/RIGO.png?v=1780469636">RIGO</option><option value="foto_tabellini/MARK.png?v=1780469636">MARK</option><option value="foto_tabellini/ANDRY.png?v=1780469636">ANDRY</option><option value="foto_tabellini/ROSS.png?v=1780469636">ROSS</option><option value="foto_tabellini/NICOLO'.png?v=1780469636">NICOLO'</option><option value="foto_tabellini/LIONS on fire.png?v=1780469636">LIONS on fire</option><option value="foto_tabellini/REAL THEA.png?v=1780469636">REAL THEA</option><option value="foto_tabellini/FANFU.png?v=1780469636">FANFU</option><option value="foto_tabellini/GUERRINO.png?v=1780469636">GUERRINO</option><option value="foto_tabellini/ALBYSK.png?v=1780469636">ALBYSK</option><option value="foto_tabellini/LUCA.png?v=1780469636">LUCA</option><option value="foto_tabellini/ANTONIO.png?v=1780469636">ANTONIO</option><option value="foto_tabellini/PIOCICCIO.png?v=1780469636">PIOCICCIO</option><option value="foto_tabellini/FRANCO.png?v=1780469636">FRANCO</option><option value="foto_tabellini/MUSCOLO.png?v=1780469636">MUSCOLO</option><option value="foto_tabellini/NANCY.png?v=1780469636">NANCY</option><option value="foto_tabellini/RUDY.png?v=1780469636">RUDY</option><option value="foto_tabellini/GABRIPASK.png?v=1780469636">GABRIPASK</option><option value="foto_tabellini/DANIELE.png?v=1780469636">DANIELE</option><option value="foto_tabellini/GENNARO.png?v=1780469636">GENNARO</option><option value="foto_tabellini/NINO.png?v=1780469636">NINO</option><option value="foto_tabellini/GIULIO's Fam..png?v=1780469636">GIULIO's Fam.</option><option value="foto_tabellini/PAOLO.png?v=1780469636">PAOLO</option><option value="foto_tabellini/FLAVIO.png?v=1780469636">FLAVIO</option><option value="foto_tabellini/MISTER FOX.png?v=1780469636">MISTER FOX</option>
+                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1780989092">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/THEA Five.png?v=1780989092">THEA Five</option><option value="foto_tabellini/CICCIOPIO.png?v=1780989092">CICCIOPIO</option><option value="foto_tabellini/ALFONSO.png?v=1780989092">ALFONSO</option><option value="foto_tabellini/SANDRO.png?v=1780989092">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1780989092">ROBERT</option><option value="foto_tabellini/GIUSEPPE.png?v=1780989092">GIUSEPPE</option><option value="foto_tabellini/TUZIA.png?v=1780989092">TUZIA</option><option value="foto_tabellini/MIRACOL.png?v=1780989092">MIRACOL</option><option value="foto_tabellini/KEMIM.png?v=1780989092">KEMIM</option><option value="foto_tabellini/DEVILS.png?v=1780989092">DEVILS</option><option value="foto_tabellini/CAOS.png?v=1780989092">CAOS</option><option value="foto_tabellini/JACOPO.png?v=1780989092">JACOPO</option><option value="foto_tabellini/MAX.png?v=1780989092">MAX</option><option value="foto_tabellini/ELEMENTARY.png?v=1780989092">ELEMENTARY</option><option value="foto_tabellini/ELENA.png?v=1780989092">ELENA</option><option value="foto_tabellini/DENNY.png?v=1780989092">DENNY</option><option value="foto_tabellini/PALA.png?v=1780989092">PALA</option><option value="foto_tabellini/TAURINORUM.png?v=1780989092">TAURINORUM</option><option value="foto_tabellini/MORLAC.png?v=1780989092">MORLAC</option><option value="foto_tabellini/ETTORE.png?v=1780989092">ETTORE</option><option value="foto_tabellini/JONA.png?v=1780989092">JONA</option><option value="foto_tabellini/ALESSIO.png?v=1780989092">ALESSIO</option><option value="foto_tabellini/VITO.png?v=1780989092">VITO</option><option value="foto_tabellini/PLAZATI.png?v=1780989092">PLAZATI</option><option value="foto_tabellini/PANDUZ.png?v=1780989092">PANDUZ</option><option value="foto_tabellini/REMEDIA.png?v=1780989092">REMEDIA</option><option value="foto_tabellini/GIACINTO.png?v=1780989092">GIACINTO</option><option value="foto_tabellini/ANDREA.png?v=1780989092">ANDREA</option><option value="foto_tabellini/RIGO.png?v=1780989092">RIGO</option><option value="foto_tabellini/MARK.png?v=1780989092">MARK</option><option value="foto_tabellini/ANDRY.png?v=1780989092">ANDRY</option><option value="foto_tabellini/ROSS.png?v=1780989092">ROSS</option><option value="foto_tabellini/NICOLO'.png?v=1780989092">NICOLO'</option><option value="foto_tabellini/LIONS on fire.png?v=1780989092">LIONS on fire</option><option value="foto_tabellini/REAL THEA.png?v=1780989092">REAL THEA</option>
                 </select>
                 <br><img id="f-tab" style="display:none; width:95%; border: 2px solid #00ff88; margin-top:25px; border-radius:12px;">
             </div>
@@ -176,8 +147,8 @@
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold; margin-bottom: 40px;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
                         <img src="immagini_fisse/Primafoto.png" class="coppa1-img-piccola">
-                        <img src="foto_coppa_1a.png?v=1780469636" class="coppa1-sub">
-                        <img src="foto_coppa_1b.png?v=1780469636" class="coppa1-sub">
+                        <img src="foto_coppa_1a.png?v=1780989092" class="coppa1-sub">
+                        <img src="foto_coppa_1b.png?v=1780989092" class="coppa1-sub">
                     </div>
                 </div>
 
@@ -187,20 +158,38 @@
                             <img src="immagini_fisse/2afase.png" style="width: 100%;">
                             <img src="immagini_fisse/CLASS2AFASE.png" style="width: 80%; border: 1px solid gold;">
                         </div>
-                        <img src="foto_coppa_2.png?v=1780469636" style="width: 50%; border: 2px solid #444;">
+                        <img src="foto_coppa_2.png?v=1780989092" style="width: 50%; border: 2px solid #444;">
                     </div>
                 </div>
 
                 <div style="background: #1a1a00; padding: 25px; border-radius: 15px; border: 1px solid gold;">
                     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
                         <img src="immagini_fisse/3afase.png" style="width: 30%; border-radius: 5px;">
-                        <img src="foto_coppa_3.png?v=1780469636" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
+                        <img src="foto_coppa_3.png?v=1780989092" style="width: 65%; border: 2px solid gold; border-radius: 5px;">
                     </div>
                 </div>
             </div>
-            <p style="color:#00ff88; margin-top:20px;">Ultimo aggiornamento: 03/06/2026 08:53:56</p>
+            <p style="color:#00ff88; margin-top:20px;">Ultimo aggiornamento: 09/06/2026 09:11:32</p>
 
             
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                let timeLeft = 15;
+                const timerDisplay = document.getElementById('countdown-timer');
+                const sezione = document.getElementById('sezione-temporanea');
+                
+                const interval = setInterval(() => {
+                    timeLeft--;
+                    if(timerDisplay) timerDisplay.textContent = timeLeft;
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(interval);
+                        if(sezione) sezione.remove();
+                    }
+                }, 1000);
+            });
+        </script>
+        
         </body>
         </html>
         
