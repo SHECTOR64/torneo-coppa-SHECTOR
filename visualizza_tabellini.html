@@ -1,17 +1,25 @@
 <!DOCTYPE html>
         <html lang="it">
         <head>
+            <meta charset="UTF-8">
             <style>
-                body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; }
-                .settore-verde { border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; margin: 20px; border-radius: 15px; }
-                .albo-select { color: gold; border: 2px solid gold; font-size: 22px; padding: 15px; background: #1a1a1a; cursor: pointer; }
-                .img-albo { max-width: 90%; border: 3px solid gold; margin-top: 20px; display: none; }
+                body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; margin: 0; padding: 15px; }
+                .settore-verde { border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
+                .flex-top { display: flex; justify-content: space-between; gap: 30px; max-width: 1400px; margin: 0 auto; }
+                .img-risultati { width: 100%; max-width: 850px; border: 2px solid #00ff88; border-radius: 8px; }
+                .img-extra { width: 100%; max-width: 450px; border: 1px solid #444; border-radius: 8px; }
+                .img-max { width: 100%; border: 2px solid #00ff88; border-radius: 5px; }
+                select { padding: 15px 50px; border-radius: 8px; background: #1a1a1a; color: #00ff88; border: 2px solid #00ff88; font-size: 22px; cursor: pointer; }
+                .albo-select { color: gold; border-color: gold; }
+                .img-albo { max-width: 90%; border: 3px solid gold; border-radius: 10px; margin-top: 20px; display: none; }
+                .coppa1-img-piccola { height: 460px; border: 2px solid gold; }
+                .coppa1-sub { height: 920px; border: 1px solid #444; }
             </style>
         </head>
         <body>
             <div class="settore-verde">
-                <h1>🏆 16° Torneo Pronostici 🏆</h1>
-                <select class="albo-select" onchange="var img=document.getElementById('img-albo'); img.src=this.value + '?v=' + new Date().getTime(); img.style.display='inline-block'">
+                <h1 style="color: #00ff88;">🏆 16° Torneo Pronostici 🏆</h1>
+                <select class="albo-select" onchange="var img=document.getElementById('img-albo'); img.src=this.value + '?cache=' + new Date().getTime(); img.style.display='inline-block'">
                     <option value="">-- 📜 ALBO D'ORO --</option>
                     <option value="immagini_fisse/ALBOTORNEO.png">ALBO TORNEO</option>
                     <option value="immagini_fisse/ALBOAPERTURA.png">ALBO APERTURA</option>
@@ -19,12 +27,33 @@
                 </select>
                 <br><img id="img-albo" class="img-albo">
             </div>
+
             <div class="settore-verde">
+                <h2 style="color: #00ff88;">⚽ I RISULTATI ⚽</h2>
+                <div class="flex-top">
+                    <div><img src="foto_tabellini/risultati_partite.png?v=1781442307" class="img-risultati"></div>
+                    <div><img src="foto_tabellini/foto_extra.png?v=1781442307" class="img-extra"></div>
+                </div>
+            </div>
+
+            <div class="settore-verde">
+                <h2 style="color: #00ff88;">📊 LE CLASSIFICHE 📊</h2>
+                <img src="foto_tabellini/classifica_turno.png?v=1781442307" class="img-max">
+            </div>
+
+            <div class="settore-verde">
+                <h2 style="color: #00ff88;">📝 I TABELLINI 📝</h2>
                 <select onchange="var img=document.getElementById('f-tab'); img.src=this.value; img.style.display='inline-block'">
                     <option value="">-- SELEZIONA GIOCATORE --</option>
-                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1781442267">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/THEA Five.png?v=1781442267">THEA Five</option><option value="foto_tabellini/CICCIOPIO.png?v=1781442267">CICCIOPIO</option><option value="foto_tabellini/ALFONSO.png?v=1781442267">ALFONSO</option><option value="foto_tabellini/SANDRO.png?v=1781442267">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1781442267">ROBERT</option><option value="foto_tabellini/GIUSEPPE.png?v=1781442267">GIUSEPPE</option><option value="foto_tabellini/TUZIA.png?v=1781442267">TUZIA</option><option value="foto_tabellini/MIRACOL.png?v=1781442267">MIRACOL</option><option value="foto_tabellini/KEMIM.png?v=1781442267">KEMIM</option><option value="foto_tabellini/DEVILS.png?v=1781442267">DEVILS</option><option value="foto_tabellini/CAOS.png?v=1781442267">CAOS</option><option value="foto_tabellini/JACOPO.png?v=1781442267">JACOPO</option><option value="foto_tabellini/MAX.png?v=1781442267">MAX</option><option value="foto_tabellini/ELEMENTARY.png?v=1781442267">ELEMENTARY</option><option value="foto_tabellini/ELENA.png?v=1781442267">ELENA</option><option value="foto_tabellini/DENNY.png?v=1781442267">DENNY</option><option value="foto_tabellini/PALA.png?v=1781442267">PALA</option><option value="foto_tabellini/TAURINORUM.png?v=1781442267">TAURINORUM</option><option value="foto_tabellini/MORLAC.png?v=1781442267">MORLAC</option><option value="foto_tabellini/ETTORE.png?v=1781442267">ETTORE</option><option value="foto_tabellini/JONA.png?v=1781442267">JONA</option><option value="foto_tabellini/ALESSIO.png?v=1781442267">ALESSIO</option><option value="foto_tabellini/VITO.png?v=1781442267">VITO</option><option value="foto_tabellini/PLAZATI.png?v=1781442267">PLAZATI</option><option value="foto_tabellini/PANDUZ.png?v=1781442267">PANDUZ</option><option value="foto_tabellini/REMEDIA.png?v=1781442267">REMEDIA</option><option value="foto_tabellini/GIACINTO.png?v=1781442267">GIACINTO</option><option value="foto_tabellini/ANDREA.png?v=1781442267">ANDREA</option><option value="foto_tabellini/RIGO.png?v=1781442267">RIGO</option><option value="foto_tabellini/MARK.png?v=1781442267">MARK</option><option value="foto_tabellini/ANDRY.png?v=1781442267">ANDRY</option><option value="foto_tabellini/ROSS.png?v=1781442267">ROSS</option><option value="foto_tabellini/NICOLO'.png?v=1781442267">NICOLO'</option><option value="foto_tabellini/LIONS on fire.png?v=1781442267">LIONS on fire</option><option value="foto_tabellini/REAL THEA.png?v=1781442267">REAL THEA</option><option value="foto_tabellini/FANFU.png?v=1781442267">FANFU</option><option value="foto_tabellini/GUERRINO.png?v=1781442267">GUERRINO</option><option value="foto_tabellini/ALBYSK.png?v=1781442267">ALBYSK</option><option value="foto_tabellini/LUCA.png?v=1781442267">LUCA</option><option value="foto_tabellini/ANTONIO.png?v=1781442267">ANTONIO</option><option value="foto_tabellini/PIOCICCIO.png?v=1781442267">PIOCICCIO</option><option value="foto_tabellini/FRANCO.png?v=1781442267">FRANCO</option><option value="foto_tabellini/MUSCOLO.png?v=1781442267">MUSCOLO</option><option value="foto_tabellini/NANCY.png?v=1781442267">NANCY</option><option value="foto_tabellini/RUDY.png?v=1781442267">RUDY</option><option value="foto_tabellini/GABRIPASK.png?v=1781442267">GABRIPASK</option><option value="foto_tabellini/DANIELE.png?v=1781442267">DANIELE</option><option value="foto_tabellini/GENNARO.png?v=1781442267">GENNARO</option><option value="foto_tabellini/NINO.png?v=1781442267">NINO</option><option value="foto_tabellini/GIULIO's Fam..png?v=1781442267">GIULIO's Fam.</option><option value="foto_tabellini/PAOLO.png?v=1781442267">PAOLO</option><option value="foto_tabellini/FLAVIO.png?v=1781442267">FLAVIO</option><option value="foto_tabellini/MISTER FOX.png?v=1781442267">MISTER FOX</option>
+                    <option value="foto_tabellini/I PRONOSTICI DI TUTTI.png?v=1781442307">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/THEA Five.png?v=1781442307">THEA Five</option><option value="foto_tabellini/CICCIOPIO.png?v=1781442307">CICCIOPIO</option><option value="foto_tabellini/ALFONSO.png?v=1781442307">ALFONSO</option><option value="foto_tabellini/SANDRO.png?v=1781442307">SANDRO</option><option value="foto_tabellini/ROBERT.png?v=1781442307">ROBERT</option><option value="foto_tabellini/GIUSEPPE.png?v=1781442307">GIUSEPPE</option><option value="foto_tabellini/TUZIA.png?v=1781442307">TUZIA</option><option value="foto_tabellini/MIRACOL.png?v=1781442307">MIRACOL</option><option value="foto_tabellini/KEMIM.png?v=1781442307">KEMIM</option><option value="foto_tabellini/DEVILS.png?v=1781442307">DEVILS</option><option value="foto_tabellini/CAOS.png?v=1781442307">CAOS</option><option value="foto_tabellini/JACOPO.png?v=1781442307">JACOPO</option><option value="foto_tabellini/MAX.png?v=1781442307">MAX</option><option value="foto_tabellini/ELEMENTARY.png?v=1781442307">ELEMENTARY</option><option value="foto_tabellini/ELENA.png?v=1781442307">ELENA</option><option value="foto_tabellini/DENNY.png?v=1781442307">DENNY</option><option value="foto_tabellini/PALA.png?v=1781442307">PALA</option><option value="foto_tabellini/TAURINORUM.png?v=1781442307">TAURINORUM</option><option value="foto_tabellini/MORLAC.png?v=1781442307">MORLAC</option><option value="foto_tabellini/ETTORE.png?v=1781442307">ETTORE</option><option value="foto_tabellini/JONA.png?v=1781442307">JONA</option><option value="foto_tabellini/ALESSIO.png?v=1781442307">ALESSIO</option><option value="foto_tabellini/VITO.png?v=1781442307">VITO</option><option value="foto_tabellini/PLAZATI.png?v=1781442307">PLAZATI</option><option value="foto_tabellini/PANDUZ.png?v=1781442307">PANDUZ</option><option value="foto_tabellini/REMEDIA.png?v=1781442307">REMEDIA</option><option value="foto_tabellini/GIACINTO.png?v=1781442307">GIACINTO</option><option value="foto_tabellini/ANDREA.png?v=1781442307">ANDREA</option><option value="foto_tabellini/RIGO.png?v=1781442307">RIGO</option><option value="foto_tabellini/MARK.png?v=1781442307">MARK</option><option value="foto_tabellini/ANDRY.png?v=1781442307">ANDRY</option><option value="foto_tabellini/ROSS.png?v=1781442307">ROSS</option><option value="foto_tabellini/NICOLO'.png?v=1781442307">NICOLO'</option><option value="foto_tabellini/LIONS on fire.png?v=1781442307">LIONS on fire</option><option value="foto_tabellini/REAL THEA.png?v=1781442307">REAL THEA</option><option value="foto_tabellini/FANFU.png?v=1781442307">FANFU</option><option value="foto_tabellini/GUERRINO.png?v=1781442307">GUERRINO</option><option value="foto_tabellini/ALBYSK.png?v=1781442307">ALBYSK</option><option value="foto_tabellini/LUCA.png?v=1781442307">LUCA</option><option value="foto_tabellini/ANTONIO.png?v=1781442307">ANTONIO</option><option value="foto_tabellini/PIOCICCIO.png?v=1781442307">PIOCICCIO</option><option value="foto_tabellini/FRANCO.png?v=1781442307">FRANCO</option><option value="foto_tabellini/MUSCOLO.png?v=1781442307">MUSCOLO</option><option value="foto_tabellini/NANCY.png?v=1781442307">NANCY</option><option value="foto_tabellini/RUDY.png?v=1781442307">RUDY</option><option value="foto_tabellini/GABRIPASK.png?v=1781442307">GABRIPASK</option><option value="foto_tabellini/DANIELE.png?v=1781442307">DANIELE</option><option value="foto_tabellini/GENNARO.png?v=1781442307">GENNARO</option><option value="foto_tabellini/NINO.png?v=1781442307">NINO</option><option value="foto_tabellini/GIULIO's Fam..png?v=1781442307">GIULIO's Fam.</option><option value="foto_tabellini/PAOLO.png?v=1781442307">PAOLO</option><option value="foto_tabellini/FLAVIO.png?v=1781442307">FLAVIO</option><option value="foto_tabellini/MISTER FOX.png?v=1781442307">MISTER FOX</option>
                 </select>
-                <br><img id="f-tab" style="display:none; width:80%; margin-top:20px;">
+                <br><img id="f-tab" style="display:none; width:95%; border: 2px solid #00ff88; margin-top:25px;">
             </div>
+
+            <div style="border: 3px solid gold; padding: 30px;">
+                <h1 style="color: gold;">🏆 1° Coppa SHECTOR 🏆</h1>
+                <img src="foto_coppa_3.png?v=1781442307" style="width: 65%; border: 2px solid gold;">
+            </div>
+            <p>Ultimo aggiornamento: 14/06/2026 15:05:07</p>
         </body>
         </html>
