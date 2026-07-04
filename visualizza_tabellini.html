@@ -1,31 +1,38 @@
-<!DOCTYPE html><html><body style="background:#121212; color:white; font-family:sans-serif; text-align:center;">
-        <div style="border:3px solid #00ff88; padding:20px; margin:20px;">
-            <h1>🏆 17° Torneo Pronostici 🏆</h1>
-            <select onchange="document.getElementById('img-reg').src=this.value+'?t=1783183479'; document.getElementById('img-reg').style.display='block';">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; text-align: center; padding: 15px; }
+        .settore-verde { border: 3px solid #00ff88; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
+        .settore-oro { border: 3px solid gold; background: #0a0a0a; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
+        h2 { font-size: 48px; color: #00ff88; text-decoration: underline; margin-bottom: 25px; }
+        .gold-select { color: gold; border: 2px solid gold; font-size: 22px; padding: 15px; background: #1a1a1a; cursor: pointer; }
+        .img-container { max-width: 90%; border: 3px solid gold; border-radius: 10px; display: none; margin-top: 20px; }
+    </style></head><body>
+        <div class="settore-verde">
+            <h1 style="color: #00ff88; font-size: 64px;">🏆 17° Torneo Pronostici 🏆</h1>
+            <select class="gold-select" onchange="document.getElementById('img-reg').src=this.value+'?t=1783183589'; document.getElementById('img-reg').style.display='block';">
                 <option value="">-- 📜 REGOLAMENTI --</option><option value="immagini_fisse/pronosticare RISULTATO ESATTO.jpg">pronosticare RISULTATO ESATTO</option><option value="immagini_fisse/PRONOSTICARE COL.BONUS.jpg">PRONOSTICARE COL.BONUS</option><option value="immagini_fisse/PRONOSTICARE PARTITA JOLLY.jpg">PRONOSTICARE PARTITA JOLLY</option><option value="immagini_fisse/PRONOSTICARE PARTITA + - GOL.jpg">PRONOSTICARE PARTITA + - GOL</option><option value="immagini_fisse/PUNTI EXTRA SEGNO 1X2.jpg">PUNTI EXTRA SEGNO 1X2</option><option value="immagini_fisse/PUNTI EXTRA COL BONUS.jpg">PUNTI EXTRA COL BONUS</option><option value="immagini_fisse/PUNTI EXTRA SOMMA GOL SQUADRE.jpg">PUNTI EXTRA SOMMA GOL SQUADRE</option><option value="immagini_fisse/PUNTI EXTRA PARTITA + DIFFICILE.jpg">PUNTI EXTRA PARTITA + DIFFICILE</option><option value="immagini_fisse/PUNTI EXTRA COPPIA + - GOL.jpg">PUNTI EXTRA COPPIA + - GOL</option><option value="immagini_fisse/PUNTI EXTRA JOLLY TURNO.jpg">PUNTI EXTRA JOLLY TURNO</option>
-            </select><br><img id="img-reg" style="display:none; max-width:80%; margin-top:20px; border:2px solid gold;">
+            </select><br><img id="img-reg" class="img-container">
         </div>
-        <div style="border:3px solid #00ff88; padding:20px; margin:20px;">
+        <div class="settore-verde">
             <h2>⚽ RISULTATI E SCOMMESSA ⚽</h2>
-            <img src="foto_tabellini/risultati_partite.png?t=1783183479" style="width:40%;">
-            <img src="foto_tabellini/foto_extra.png?t=1783183479" style="width:40%;">
+            <img src="foto_tabellini/risultati_partite.png?t=1783183589" style="width:45%;">
+            <img src="foto_tabellini/foto_extra.png?t=1783183589" style="width:45%;">
         </div>
-        <div style="border:3px solid #00ff88; padding:20px; margin:20px;">
+        <div class="settore-verde">
             <h2>📊 CLASSIFICHE 📊</h2>
-            <img src="foto_tabellini/classifica_turno.png?t=1783183479" style="width:80%;">
+            <img src="foto_tabellini/classifica_turno.png?t=1783183589" style="width:80%;">
         </div>
-        <div style="border:3px solid gold; padding:20px; margin:20px;">
-            <h2>🏆 COPPA SHECTOR 🏆</h2>
-            <img src="foto_tabellini/coppa_fase1_parte1.png?t=1783183479" style="width:30%;">
-            <img src="foto_tabellini/coppa_fase1_parte2.png?t=1783183479" style="width:30%;"><br>
-            <img src="foto_tabellini/coppa_fase2_parte1.png?t=1783183479" style="width:30%;">
-            <img src="foto_tabellini/coppa_fase2_parte2.png?t=1783183479" style="width:30%;"><br>
-            <img src="foto_tabellini/coppa_fase3_parte1.png?t=1783183479" style="width:40%;">
+        <div class="settore-oro">
+            <h1 style="color: gold; font-size: 52px;">🏆 COPPA SHECTOR 🏆</h1>
+            <img src="foto_tabellini/coppa_fase1_parte1.png?t=1783183589" style="width:30%;">
+            <img src="foto_tabellini/coppa_fase1_parte2.png?t=1783183589" style="width:30%;"><br>
+            <img src="foto_tabellini/coppa_fase2_parte1.png?t=1783183589" style="width:30%;">
+            <img src="foto_tabellini/coppa_fase2_parte2.png?t=1783183589" style="width:30%;"><br>
+            <img src="foto_tabellini/coppa_fase3_parte1.png?t=1783183589" style="width:40%;">
         </div>
-        <div style="border:3px solid #00ff88; padding:20px; margin:20px;">
+        <div class="settore-verde">
             <h2>📝 TABELLINI PERSONALI 📝</h2>
-            <select onchange="document.getElementById('img-tab').src=this.value+'?t=1783183479'; document.getElementById('img-tab').style.display='block';">
+            <select class="gold-select" onchange="document.getElementById('img-tab').src=this.value+'?t=1783183589'; document.getElementById('img-tab').style.display='block';">
                 <option value="">-- SELEZIONA GIOCATORE --</option><option value="foto_tabellini/PALA.png">PALA</option><option value="foto_tabellini/DENNY.png">DENNY</option><option value="foto_tabellini/ANTONIO.png">ANTONIO</option><option value="foto_tabellini/ALESSIO.png">ALESSIO</option><option value="foto_tabellini/REMEDIA.png">REMEDIA</option><option value="foto_tabellini/MISTER FOX.png">MISTER FOX</option><option value="foto_tabellini/ALBYSK.png">ALBYSK</option><option value="foto_tabellini/JACOPO.png">JACOPO</option><option value="foto_tabellini/TUZIA.png">TUZIA</option><option value="foto_tabellini/NANCY.png">NANCY</option><option value="foto_tabellini/GENNARO.png">GENNARO</option><option value="foto_tabellini/FRANCO.png">FRANCO</option><option value="foto_tabellini/NICOLO'.png">NICOLO'</option><option value="foto_tabellini/LUCA.png">LUCA</option><option value="foto_tabellini/TAURINORUM.png">TAURINORUM</option><option value="foto_tabellini/GIACINTO.png">GIACINTO</option><option value="foto_tabellini/ALFONSO.png">ALFONSO</option><option value="foto_tabellini/ETTORE.png">ETTORE</option><option value="foto_tabellini/ROSS.png">ROSS</option><option value="foto_tabellini/FANFU.png">FANFU</option><option value="foto_tabellini/RUDY.png">RUDY</option><option value="foto_tabellini/VITO.png">VITO</option><option value="foto_tabellini/PLAZATI.png">PLAZATI</option><option value="foto_tabellini/ANDRY.png">ANDRY</option><option value="foto_tabellini/FLAVIO.png">FLAVIO</option><option value="foto_tabellini/REAL THEA.png">REAL THEA</option><option value="foto_tabellini/PAOLO.png">PAOLO</option><option value="foto_tabellini/PANDUZ.png">PANDUZ</option><option value="foto_tabellini/DEVILS.png">DEVILS</option><option value="foto_tabellini/GIULIO'S FAM..png">GIULIO'S FAM.</option><option value="foto_tabellini/RIGO.png">RIGO</option><option value="foto_tabellini/CICCIOPIO.png">CICCIOPIO</option><option value="foto_tabellini/ANDREA.png">ANDREA</option><option value="foto_tabellini/THEA FIVE.png">THEA FIVE</option><option value="foto_tabellini/PIOCICCIO.png">PIOCICCIO</option><option value="foto_tabellini/LIONS ON FIRE.png">LIONS ON FIRE</option><option value="foto_tabellini/MUSCOLO.png">MUSCOLO</option><option value="foto_tabellini/MORLAC.png">MORLAC</option><option value="foto_tabellini/CAOS.png">CAOS</option><option value="foto_tabellini/SANDRO.png">SANDRO</option><option value="foto_tabellini/ROBERT.png">ROBERT</option><option value="foto_tabellini/MIRACOL.png">MIRACOL</option><option value="foto_tabellini/MAX.png">MAX</option><option value="foto_tabellini/GIUSEPPE.png">GIUSEPPE</option><option value="foto_tabellini/GUERRINO.png">GUERRINO</option><option value="foto_tabellini/KEMIM.png">KEMIM</option><option value="foto_tabellini/ELEMENTARY.png">ELEMENTARY</option><option value="foto_tabellini/GABRIPASK.png">GABRIPASK</option><option value="foto_tabellini/DANIELE.png">DANIELE</option><option value="foto_tabellini/MARK.png">MARK</option><option value="foto_tabellini/ELENA.png">ELENA</option><option value="foto_tabellini/NINO.png">NINO</option><option value="foto_tabellini/JONA.png">JONA</option>
-            </select><br><img id="img-tab" style="display:none; max-width:80%; margin-top:20px; border:2px solid #00ff88;">
+            </select><br><img id="img-tab" class="img-container">
         </div>
     </body></html>
