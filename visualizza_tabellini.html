@@ -5,33 +5,17 @@
         body { background-color: #121212; color: white; font-family: "AR CENA", sans-serif; text-align: center; padding: 20px; }
         .settore-verde { border: 3px solid #00ff88; background: #0a0a0a; padding: 20px; border-radius: 15px; margin-bottom: 30px; }
         .settore-oro { border: 3px solid gold; background: #0a0a0a; padding: 20px; border-radius: 15px; }
-        .fase-frame { border: 2px solid gold; padding: 15px; margin: 15px auto; width: 85%; border-radius: 10px; }
+        .fase-frame { border: 2px solid gold; padding: 15px; margin: 15px auto; width: 90%; border-radius: 10px; text-align: left; }
         .gold-select { color: gold; border: 2px solid gold; padding: 15px; background: #1a1a1a; cursor: pointer; font-family: "AR CENA"; font-size: 20px; }
-        img { margin-top: 15px; }
+        .coppa-img { width: 45%; border: 2px solid gold; vertical-align: top; }
     </style></head>
     <body>
         <div class="settore-verde">
             <h1 style="color: #00ff88; font-size: 60px;">🏆 17° Torneo Pronostici 🏆 2026/27</h1>
-            <select class="gold-select" onchange="var img=document.getElementById('i-albo'); img.src=this.value; img.style.display='inline'">
-                <option value="">-- 📜 ALBO D'ORO --</option>
-                <option value="immagini_fisse/ALBOTORNEO.png">ALBO TORNEO</option>
-                <option value="immagini_fisse/ALBODOROA-R.png">ALBO ANDATA-RITORNO</option>
-            </select><br><img id="i-albo" style="display:none; width:500px;">
-            <select class="gold-select" onchange="var img=document.getElementById('i-reg'); img.src=this.value; img.style.display='inline'">
-                <option value="">-- 📜 REGOLAMENTI --</option><option value="immagini_fisse/Pronosticare 1-RISULTATO ESATTO.jpg">Pronosticare 1-RISULTATO ESATTO</option><option value="immagini_fisse/Pronosticare 2-COL.BONUS.jpg">Pronosticare 2-COL.BONUS</option><option value="immagini_fisse/Pronosticare 3-PARTITE + - GOL.jpg">Pronosticare 3-PARTITE + - GOL</option><option value="immagini_fisse/Pronosticare 4-PARTITA JOLLY.jpg">Pronosticare 4-PARTITA JOLLY</option><option value="immagini_fisse/punti EXTRA 1- con SEGNI 1X2.jpg">punti EXTRA 1- con SEGNI 1X2</option><option value="immagini_fisse/punti EXTRA 2-con COL.BONUS.jpg">punti EXTRA 2-con COL.BONUS</option><option value="immagini_fisse/punti EXTRA 3-con SOMMAGOL SQUADRE.jpg">punti EXTRA 3-con SOMMAGOL SQUADRE</option><option value="immagini_fisse/punti EXTRA 4-con PARTITA + DIFFICILE.jpg">punti EXTRA 4-con PARTITA + DIFFICILE</option><option value="immagini_fisse/punti EXTRA 5-con COPPIA + - GOL.jpg">punti EXTRA 5-con COPPIA + - GOL</option><option value="immagini_fisse/punti EXTRA 6-con JOLLY TURNO.jpg">punti EXTRA 6-con JOLLY TURNO</option><option value="immagini_fisse/vincita EXTRA con JACKPOT.jpg">vincita EXTRA con JACKPOT</option>
-            </select><br><img id="i-reg" style="display:none; width:500px;">
-            
-            <h2>⚽ RISULTATI & EXTRA ⚽</h2>
-            <img src="foto_tabellini/risultati_partite.png?v=1783404985" style="width:80%; border:2px solid #00ff88;"><br>
-            <img src="foto_tabellini/foto_extra.png?v=1783404985" style="width:50%; border:1px solid #444; margin-top:20px;">
-            
+            <h2>⚽ RISULTATI TESTUALI ⚽</h2>
+            <pre style='color:white; font-size:18px;'>[[1.0, datetime.datetime(2026, 8, 22, 0, 0), None, None, None, None, None, None, None, None, None, 'Quote/Punti', None, None, None, None, None, None, None], [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], [None, 'ANDATA', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], ['TURNO', 'PARTITE', None, None, 'RISULTATO', None, None, None, None, 'G/NG', 'U/OV', 'RISULT.', 'SEGNO', 'G/NG', 'U/OV', '+ GOL', '- GOL', 'SMG casa', 'SMG osp'], [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], [1.0, 'INTER', 'MONZA', 3.0, 2.0, 1.0, '21', 1.0, 3.0, 'G', 'OV', 11.0, 1.2, 2.2, 1.5, None, None, 3.6, 2.75], [2.0, 'UDINESE', 'COMO', 3.0, 2.0, 1.0, '21', 1.0, 3.0, 'G', 'OV', 16.0, 4.5, 1.82, 2.0, None, None, 5.0, 2.8], [3.0, 'GENOA', 'NAPOLI', 1.0, 0.0, 1.0, '01', 2.0, 1.0, 'NG', 'U', 5.5, 1.65, 1.7, 1.65, None, None, 2.05, 2.8], [4.0, 'PARMA', 'CAGLIARI', 3.0, 3.0, 0.0, '30', 1.0, 3.0, 'NG', 'OV', 26.0, 2.45, 1.88, 2.1, None, None, 1.87, 2.85], [5.0, 'FROSINONE', 'JUVENTUS', 3.0, 3.0, 0.0, '30', 1.0, 3.0, 'NG', 'OV', 75.0, 6.25, 2.0, 1.65, None, None, 1.87, 6.5], [6.0, 'VENEZIA', 'LECCE', 4.0, 4.0, 0.0, '40', 1.0, 4.0, 'NG', 'OV', 60.0, 2.35, 1.98, 2.0, None, None, 1.87, 2.9], [7.0, 'ATALANTA', 'SASSUOLO', 3.0, 1.0, 2.0, '12', 2.0, 3.0, 'G', 'OV', 18.0, 5.5, 1.7, 1.65, None, None, 3.25, 4.75], [8.0, 'TORINO', 'MILAN', 0.0, 0.0, 0.0, '00', 'X', 0.0, 'NG', 'U', 9.25, 3.4, 1.95, 1.8, None, 3.75, 2.5, 4.5], [9.0, 'BOLOGNA', 'LAZIO', 5.0, 3.0, 2.0, '32', 1.0, 5.0, 'G', 'OV', 28.0, 2.05, 1.67, 1.9, 3.57, None, 1.87, 4.4], [10.0, 'ROMA', 'FIORENTINA', 3.0, 1.0, 2.0, '12', 2.0, 3.0, 'G', 'OV', 21.0, 6.25, 1.9, 1.85, None, None, 3.1, 5.75]]</pre>
             <h2>📊 CLASSIFICHE 📊</h2>
-            <img src="foto_tabellini/classifica_turno.png?v=1783404985" style="width:90%; border:2px solid #00ff88;">
-            
-            <h2>📝 TABELLINI 📝</h2>
-            <select class="gold-select" onchange="var img=document.getElementById('i-tab'); img.src=this.value; img.style.display='inline'">
-                <option value="">-- SELEZIONA GIOCATORE --</option><option value="foto_tabellini/I PRONOSTICI DI TUTTI.png">I PRONOSTICI DI TUTTI</option><option value="foto_tabellini/ANTONIO.png">ANTONIO</option><option value="foto_tabellini/PALA.png">PALA</option><option value="foto_tabellini/TUZIA.png">TUZIA</option><option value="foto_tabellini/REAL THEA.png">REAL THEA</option><option value="foto_tabellini/THEA FIVE.png">THEA FIVE</option><option value="foto_tabellini/MISTER FOX.png">MISTER FOX</option><option value="foto_tabellini/JACOPO.png">JACOPO</option><option value="foto_tabellini/GIACINTO.png">GIACINTO</option><option value="foto_tabellini/RIGO.png">RIGO</option><option value="foto_tabellini/GENNARO.png">GENNARO</option><option value="foto_tabellini/MUSCOLO.png">MUSCOLO</option><option value="foto_tabellini/NICOLO'.png">NICOLO'</option><option value="foto_tabellini/LUCA.png">LUCA</option><option value="foto_tabellini/DENNY.png">DENNY</option><option value="foto_tabellini/DEVILS.png">DEVILS</option><option value="foto_tabellini/FLAVIO.png">FLAVIO</option><option value="foto_tabellini/ANDREA.png">ANDREA</option><option value="foto_tabellini/ALESSIO.png">ALESSIO</option><option value="foto_tabellini/REMEDIA.png">REMEDIA</option><option value="foto_tabellini/ALBYSK.png">ALBYSK</option><option value="foto_tabellini/GUERRINO.png">GUERRINO</option><option value="foto_tabellini/PAOLO.png">PAOLO</option><option value="foto_tabellini/ETTORE.png">ETTORE</option><option value="foto_tabellini/VITO.png">VITO</option><option value="foto_tabellini/NANCY.png">NANCY</option><option value="foto_tabellini/ALFONSO.png">ALFONSO</option><option value="foto_tabellini/FRANCO.png">FRANCO</option><option value="foto_tabellini/PLAZATI.png">PLAZATI</option><option value="foto_tabellini/TAURINORUM.png">TAURINORUM</option><option value="foto_tabellini/ANDRY.png">ANDRY</option><option value="foto_tabellini/FANFU.png">FANFU</option><option value="foto_tabellini/ROSS.png">ROSS</option><option value="foto_tabellini/GIULIO'S FAM..png">GIULIO'S FAM.</option><option value="foto_tabellini/RUDY.png">RUDY</option><option value="foto_tabellini/LIONS ON FIRE.png">LIONS ON FIRE</option><option value="foto_tabellini/ROBERT.png">ROBERT</option><option value="foto_tabellini/SANDRO.png">SANDRO</option><option value="foto_tabellini/PIOCICCIO.png">PIOCICCIO</option><option value="foto_tabellini/ELEMENTARY.png">ELEMENTARY</option><option value="foto_tabellini/DANIELE.png">DANIELE</option><option value="foto_tabellini/PANDUZ.png">PANDUZ</option><option value="foto_tabellini/MAX.png">MAX</option><option value="foto_tabellini/MIRACOL.png">MIRACOL</option><option value="foto_tabellini/CICCIOPIO.png">CICCIOPIO</option><option value="foto_tabellini/CAOS.png">CAOS</option><option value="foto_tabellini/ELENA.png">ELENA</option><option value="foto_tabellini/MARK.png">MARK</option><option value="foto_tabellini/KEMIM.png">KEMIM</option><option value="foto_tabellini/GABRIPASK.png">GABRIPASK</option><option value="foto_tabellini/GIUSEPPE.png">GIUSEPPE</option><option value="foto_tabellini/JONA.png">JONA</option><option value="foto_tabellini/NINO.png">NINO</option><option value="foto_tabellini/MORLAC.png">MORLAC</option>
-            </select><br><img id="i-tab" style="display:none; width:90%; margin-top:20px; border:2px solid #00ff88;">
+            <img src="foto_tabellini/classifica_turno.png?v=1783405149" style="width:90%; border:2px solid #00ff88;">
         </div>
         
         <div class="settore-oro">
@@ -40,8 +24,16 @@
                 <option>-- REGOLAMENTO FASI --</option><option value="immagini_fisse/fase A.jpg">Fase A</option><option value="immagini_fisse/fase B.jpg">Fase B</option><option value="immagini_fisse/fase C.jpg">Fase C</option>
             </select><br><img id="c-img" style="width:400px; margin-top:10px;">
             
-            <div class="fase-frame"><h3>Fase 1</h3><img src="foto_tabellini/coppa_fase1_parte1.png?v=1783404985" style="width:45%; border:2px solid gold;"><img src="foto_tabellini/coppa_fase1_parte2.png?v=1783404985" style="width:45%; border:2px solid gold;"></div>
-            <div class="fase-frame"><h3>Fase 2</h3><img src="foto_tabellini/coppa_fase2_parte1.png?v=1783404985" style="width:45%; border:2px solid gold;"><img src="foto_tabellini/coppa_fase2_parte2.png?v=1783404985" style="width:45%; border:2px solid gold;"></div>
-            <div class="fase-frame"><h3>Fase 3</h3><img src="foto_tabellini/coppa_fase3_parte1.png?v=1783404985" style="width:45%; border:2px solid gold;"></div>
+            <div class="fase-frame"><h3>Fase 1</h3>
+                <img src="foto_tabellini/coppa_fase1_parte2.png?v=1783405149" class="coppa-img">
+                <img src="foto_tabellini/coppa_fase1_parte1.png?v=1783405149" class="coppa-img">
+            </div>
+            <div class="fase-frame"><h3>Fase 2</h3>
+                <img src="foto_tabellini/coppa_fase2_parte2.png?v=1783405149" class="coppa-img">
+                <img src="foto_tabellini/coppa_fase2_parte1.png?v=1783405149" class="coppa-img">
+            </div>
+            <div class="fase-frame"><h3>Fase 3</h3>
+                <img src="foto_tabellini/coppa_fase3_parte1.png?v=1783405149" class="coppa-img">
+            </div>
         </div>
     </body></html>
