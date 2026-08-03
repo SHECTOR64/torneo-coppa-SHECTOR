@@ -23,8 +23,27 @@
         .coppa-img { width: 45%; border: 2px solid gold; vertical-align: top; }
         .distacco-img { margin-left: 20px; }
         .colonna-destra { display: inline-block; width: 45%; vertical-align: top; }
-        .fasi-orizzontali { text-align: center; margin: 20px 0; }
-        .fasi-orizzontali img { width: 28%; border: 2px solid gold; display: inline-block; margin: 0 10px; vertical-align: middle; }
+        
+        /* Contenitore unico aderente per le tre foto */
+        .fasi-unite { 
+            display: inline-block; 
+            border: 2px solid gold; 
+            padding: 0px; 
+            background: #000; 
+            line-height: 0; 
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .fasi-unite img { 
+            width: 28vw; 
+            max-width: 350px; 
+            border: none; 
+            display: inline-block; 
+            margin: 0; 
+            padding: 0; 
+            vertical-align: top; 
+        }
+        
         h2 { font-size: 40px; }
     </style></head>
     <body>
@@ -39,13 +58,13 @@
             
             <div class="frame">
                 <h2>⚽ RISULTATI ⚽</h2>
-                <img src="foto_tabellini/risultati_partite.png?v=1785741613" class="img-larga"><br>
-                <img src="foto_tabellini/foto_extra.png?v=1785741613" style="width:50%; border:1px solid #444; margin-top:20px;">
+                <img src="foto_tabellini/risultati_partite.png?v=1785741725" class="img-larga"><br>
+                <img src="foto_tabellini/foto_extra.png?v=1785741725" style="width:50%; border:1px solid #444; margin-top:20px;">
             </div>
             
             <div class="frame">
                 <h2>📊 CLASSIFICHE 📊</h2>
-                <img src="foto_tabellini/classifica_turno.png?v=1785741613" class="img-larga">
+                <img src="foto_tabellini/classifica_turno.png?v=1785741725" class="img-larga">
             </div>
             
             <h2>📝 TABELLINI 📝</h2>
@@ -57,19 +76,16 @@
         <div class="settore-oro">
             <h1 style="color: gold; font-size: 50px;">🏆 2° Coppa SHECTOR 🏆</h1>
             
-            <!-- RIQUADRO CORNICE PER REGOLAMENTO E LE 3 FASI -->
-            <div class="frame" style="border-color: gold; margin-top: 30px;">
-                <h2 style="color: gold; margin-top: 10px; margin-bottom: 20px;">📜 REGOLAMENTO 📜</h2>
-                
-                <!-- FASI A, B, C IN FILA ORIZZONTALE IN ORDINE -->
-                <div class="fasi-orizzontali">
-                    <img src="immagini_fisse/fase A.jpg">
-                    <img src="immagini_fisse/fase B.jpg">
-                    <img src="immagini_fisse/fase C.jpg">
-                </div>
+            <h2 style="color: gold; margin-top: 20px;">📜 REGOLAMENTO 📜</h2>
+            
+            <!-- UNICO BORDO ATTACCATO INTORNO ALLE TRE FOTO -->
+            <div class="fasi-unite">
+                <img src="immagini_fisse/fase A.jpg">
+                <img src="immagini_fisse/fase B.jpg">
+                <img src="immagini_fisse/fase C.jpg">
             </div>
             
-            <!-- TABELLINI COPPA SHECTOR (FUORI DALLA CORNICE) -->
+            <!-- TABELLINI COPPA SHECTOR -->
             <h2 style="color: gold;">📝 TABELLINI 📝</h2>
             <select class="gold-select" onchange="var img=document.getElementById('i-coppa-tab'); img.src=this.value; img.style.display='inline'">
                 <option value="">-- SELEZIONA GIOCATORE --</option><option value="foto_tabellini/coppa_tab_ANTONIO.png">ANTONIO</option><option value="foto_tabellini/coppa_tab_PALA.png">PALA</option><option value="foto_tabellini/coppa_tab_TUZIA.png">TUZIA</option><option value="foto_tabellini/coppa_tab_REAL THEA.png">REAL THEA</option><option value="foto_tabellini/coppa_tab_THEA FIVE.png">THEA FIVE</option><option value="foto_tabellini/coppa_tab_MISTER FOX.png">MISTER FOX</option><option value="foto_tabellini/coppa_tab_GENNARO.png">GENNARO</option><option value="foto_tabellini/coppa_tab_LUCA.png">LUCA</option><option value="foto_tabellini/coppa_tab_GIACINTO.png">GIACINTO</option><option value="foto_tabellini/coppa_tab_RIGO.png">RIGO</option><option value="foto_tabellini/coppa_tab_JACOPO.png">JACOPO</option><option value="foto_tabellini/coppa_tab_NICOLO'.png">NICOLO'</option><option value="foto_tabellini/coppa_tab_MUSCOLO.png">MUSCOLO</option><option value="foto_tabellini/coppa_tab_DEVILS.png">DEVILS</option><option value="foto_tabellini/coppa_tab_FLAVIO.png">FLAVIO</option><option value="foto_tabellini/coppa_tab_DENNY.png">DENNY</option><option value="foto_tabellini/coppa_tab_ANDREA.png">ANDREA</option><option value="foto_tabellini/coppa_tab_ALESSIO.png">ALESSIO</option><option value="foto_tabellini/coppa_tab_ALBYSK.png">ALBYSK</option><option value="foto_tabellini/coppa_tab_REMEDIA.png">REMEDIA</option><option value="foto_tabellini/coppa_tab_ETTORE.png">ETTORE</option><option value="foto_tabellini/coppa_tab_GUERRINO.png">GUERRINO</option><option value="foto_tabellini/coppa_tab_PAOLO.png">PAOLO</option><option value="foto_tabellini/coppa_tab_VITO.png">VITO</option><option value="foto_tabellini/coppa_tab_PLAZATI.png">PLAZATI</option><option value="foto_tabellini/coppa_tab_ANDRY.png">ANDRY</option><option value="foto_tabellini/coppa_tab_ALFONSO.png">ALFONSO</option><option value="foto_tabellini/coppa_tab_NANCY.png">NANCY</option><option value="foto_tabellini/coppa_tab_LIONS ON FIRE.png">LIONS ON FIRE</option><option value="foto_tabellini/coppa_tab_FRANCO.png">FRANCO</option><option value="foto_tabellini/coppa_tab_TAURINORUM.png">TAURINORUM</option><option value="foto_tabellini/coppa_tab_FANFU.png">FANFU</option><option value="foto_tabellini/coppa_tab_ROSS.png">ROSS</option><option value="foto_tabellini/coppa_tab_GIULIO'S FAM..png">GIULIO'S FAM.</option><option value="foto_tabellini/coppa_tab_RUDY.png">RUDY</option><option value="foto_tabellini/coppa_tab_PANDUZ.png">PANDUZ</option><option value="foto_tabellini/coppa_tab_ROBERT.png">ROBERT</option><option value="foto_tabellini/coppa_tab_DANIELE.png">DANIELE</option><option value="foto_tabellini/coppa_tab_CICCIOPIO.png">CICCIOPIO</option><option value="foto_tabellini/coppa_tab_SANDRO.png">SANDRO</option><option value="foto_tabellini/coppa_tab_PIOCICCIO.png">PIOCICCIO</option><option value="foto_tabellini/coppa_tab_ELEMENTARY.png">ELEMENTARY</option><option value="foto_tabellini/coppa_tab_MIRACOL.png">MIRACOL</option><option value="foto_tabellini/coppa_tab_CAOS.png">CAOS</option><option value="foto_tabellini/coppa_tab_MAX.png">MAX</option><option value="foto_tabellini/coppa_tab_KEMIM.png">KEMIM</option><option value="foto_tabellini/coppa_tab_MARK.png">MARK</option><option value="foto_tabellini/coppa_tab_ELENA.png">ELENA</option><option value="foto_tabellini/coppa_tab_GIUSEPPE.png">GIUSEPPE</option><option value="foto_tabellini/coppa_tab_GABRIPASK.png">GABRIPASK</option><option value="foto_tabellini/coppa_tab_JONA.png">JONA</option><option value="foto_tabellini/coppa_tab_NINO.png">NINO</option><option value="foto_tabellini/coppa_tab_MORLAC.png">MORLAC</option>
@@ -78,21 +94,21 @@
             <!-- PRIMO RIQUADRO DELLE FASI SUCCESSIVE CON LA SCRITTA DENTRO -->
             <div class="frame" style="border-color: gold; margin-top: 30px;">
                 <h2 style="color: gold; margin-top: 10px; margin-bottom: 20px;">📊 RISULTATI e CLASSIFICHE 📊</h2>
-                <img src="foto_tabellini/coppa_fase1_parte2.png?v=1785741613" class="coppa-img">
+                <img src="foto_tabellini/coppa_fase1_parte2.png?v=1785741725" class="coppa-img">
                 <div class="colonna-destra distacco-img">
-                    <img src="foto_tabellini/coppa_fase1_parte1.png?v=1785741613" style="width:100%; border:2px solid gold;">
+                    <img src="foto_tabellini/coppa_fase1_parte1.png?v=1785741725" style="width:100%; border:2px solid gold;">
                 </div>
             </div>
             
             <div class="frame" style="border-color: gold;">
-                <img src="foto_tabellini/coppa_fase2_parte2.png?v=1785741613" class="coppa-img">
+                <img src="foto_tabellini/coppa_fase2_parte2.png?v=1785741725" class="coppa-img">
                 <div class="colonna-destra distacco-img">
-                    <img src="foto_tabellini/coppa_fase2_parte1.png?v=1785741613" style="width:100%; border:2px solid gold;">
+                    <img src="foto_tabellini/coppa_fase2_parte1.png?v=1785741725" style="width:100%; border:2px solid gold;">
                 </div>
             </div>
             
             <div class="frame" style="border-color: gold;">
-                <img src="foto_tabellini/coppa_fase3_parte1.png?v=1785741613" class="coppa-img">
+                <img src="foto_tabellini/coppa_fase3_parte1.png?v=1785741725" class="coppa-img">
             </div>
         </div>
     </body></html>
